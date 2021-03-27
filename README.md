@@ -7,13 +7,13 @@ Students will be able to log into the application and choose what category they 
 
 Keeping historical data for each logged-in student can show the student, parent, teacher, or tutor trends in their learning to help them master multiplication for good.
 
-# Story Tags
+## Story Tags
 The following labels/tags will be used for this repository: MVP, Stretch Goal, bug, documentation
 MVP issues need to be ready to release by project deadline.
 Stretch Goal issues are ready to be worked on if all MVP issues are completed and time is left before project deadline.
 Bug tags will be used for any bugs that come up in development
 Documentation tags will be used for any communication about the stories/issues/updates needed
 
-# Building
+## Building
 As development progresses, this section will be updated with information on how to build the project.
 For now, it is a placeholder.
