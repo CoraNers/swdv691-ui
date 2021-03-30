@@ -21,7 +21,7 @@ export class AppComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
-      width: '750px',
+      width: '500px',
       data: 
       {
         username: this.username, 

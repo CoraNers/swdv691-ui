@@ -1,18 +1,18 @@
 <p>
     <mat-form-field appearance="standard">
       <mat-label>Username</mat-label>
-      <input matInput placeholder="Username">
+      <input matInput [(ngModel)]="username" placeholder="Username">
     </mat-form-field>
 </p>
 <p>
     <mat-form-field appearance="standard">
       <mat-label>Password</mat-label>
-      <input matInput placeholder="Password">
+      <input matInput [(ngModel)]="password" placeholder="Password">
     </mat-form-field>
 </p>
 
   <section>
     <div class="example-button-row">
-      <button mat-raised-button>Login</button>
+      <button mat-raised-button (click)="doLogin()">Login</button>
     </div>
   </section>
