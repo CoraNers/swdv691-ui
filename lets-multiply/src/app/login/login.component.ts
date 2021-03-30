@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceProvider } from '../../providers/data-service/data-service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ export class LoginComponent implements OnInit {
   username = "";
   password = "";
 
-  constructor() { }
+  constructor(public dataService: DataServiceProvider) { }
 
   ngOnInit(): void {
     console.log('ngOnInit of login component');
