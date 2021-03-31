@@ -9,6 +9,7 @@ import { DataServiceProvider } from '../../providers/data-service/data-service';
 export class LoginComponent implements OnInit {
   username = "";
   password = "";
+  loginTitle = "Please login..."
 
   constructor(public dataService: DataServiceProvider) { }
 

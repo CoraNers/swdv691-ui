@@ -1,14 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
+$fontFamilyHeadings: 'Truculenta';
+$fontFamilyBody: 'Maven Pro', sans-serif; 
+
 html, body { 
     height: 100%; 
-    font-family: 'Maven Pro', sans-serif; 
+    font-family: $fontFamilyBody; 
     color: black; 
 }
 
 body { 
     margin: 0; 
-    font-family: 'Maven Pro', sans-serif; 
+    font-family: $fontFamilyBody;
+}
+
+.mat-h2, .mat-title, .mat-typography h2 {
+    font-size: 45px; 
+    font-weight: bold; 
+    font-family: $fontFamilyHeadings;
+    letter-spacing: 4px;
+}
+
+.mat-form-field-infix {
+    font-family: $fontFamilyBody; 
+}
+
+.mat-dialog-actions {
+    justify-content: center;
 }
 
 .buttonStyle {
@@ -17,9 +35,10 @@ body {
     padding: 15px; 
     color: black; 
     font-weight: bold; 
-    font-family: 'Maven Pro', sans-serif; 
+    font-family: $fontFamilyBody;
     font-size: 16px; 
     border: 2.5px solid #276678; 
     letter-spacing: 0.5px;
     cursor: pointer;
 }
+
