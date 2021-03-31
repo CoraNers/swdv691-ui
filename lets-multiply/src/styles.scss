@@ -3,6 +3,11 @@
 $fontFamilyHeadings: 'Truculenta';
 $fontFamilyBody: 'Maven Pro', sans-serif; 
 
+$primaryColor: #F6F5F5;
+$secondaryColor: #D3E0EA;
+$accentColor1: #1687A7;
+$accentColor2: #276678;
+
 $colorSuccess: #939b62;
 $colorDanger: #ffb26b;
 $colorWarning: #ffd56b;
@@ -16,10 +21,33 @@ html, body {
 body { 
     margin: 0; 
     font-family: $fontFamilyBody;
+    background-color: $primaryColor;
+}
+
+.toolbarClass {
+    height: 100px;
+    background-color: $accentColor1;
+}
+
+.mat-h1, .mat-headline, .mat-typography h1 {
+    font-size: 80px; 
+    font-weight: bold; 
+    font-family: $fontFamilyHeadings;
+    letter-spacing: 4px;
+    color: black;
+    text-align: center;
+    padding-top: 35px;
 }
 
 .mat-h2, .mat-title, .mat-typography h2 {
     font-size: 45px; 
+    font-weight: bold; 
+    font-family: $fontFamilyHeadings;
+    letter-spacing: 4px;
+}
+
+.mat-h3, .mat-title, .mat-typography h3 {
+    font-size: 25px; 
     font-weight: bold; 
     font-family: $fontFamilyHeadings;
     letter-spacing: 4px;
@@ -58,3 +86,6 @@ body {
     color: black;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

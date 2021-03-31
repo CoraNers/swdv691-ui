@@ -13,7 +13,6 @@ export class DataServiceProvider {
   }
 
   doLogin(username, password) {
-    console.log('inside doLogin');
     return this.http.get(this.baseURL + '/login?username=' + username + '&password=' + password).pipe(
       map(this.extractData),
       catchError(this.handleError)

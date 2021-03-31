@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
 @Component({
@@ -13,8 +14,10 @@ export class AppComponent {
   username: string;
   password: string;
   loggedInFirstName: string;
+  getLoggedInUserData: object;
+  goToWelcome = false;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.openDialog();
@@ -33,8 +36,10 @@ export class AppComponent {
     let dialogRef = this.dialog.open(LoginComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result); // this is the userData json from the database
-      this.loggedInFirstName = result.firstName;
+      this.getLoggedInUserData = result;
+      console.log('*******');
+      console.log(this.getLoggedInUserData);
+      this.goToWelcome = true;
     });
   }
 

@@ -1,0 +1,56 @@
+<h2>
+    Welcome {{userData.firstName}}!
+</h2>
+
+<h3>
+    Please select mode and category you want to work on today.<br>
+    You can come back to this page later and play more.
+</h3>
+
+<div>
+    <form action="">
+        <input type="radio" [(ngModel)]="mode" name="mode" value="practice">Practice<br>
+        <input type="radio" [(ngModel)]="mode" name="mode" value="evaluation">Evaluation
+    </form>
+
+    <div>DEBUGGING Selected Radio: {{mode}}</div>
+</div>
+
+<mat-grid-list cols="4" rowHeight="2:1">
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">1's</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">2's</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">3's</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">4's</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">5's</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">6's</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">7's</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">8's</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">9's</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">10's</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">11's</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button md-button class="buttonStyle">12's</button>
+    </mat-grid-tile>
+  </mat-grid-list>
