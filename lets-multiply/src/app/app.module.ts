@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DataServiceProvider } from 'src/providers/data-service/data-service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule
   ],
   exports: [
     MatDialogModule,

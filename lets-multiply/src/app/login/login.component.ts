@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DataServiceProvider } from '../../providers/data-service/data-service';
 
 @Component({
@@ -10,20 +12,35 @@ export class LoginComponent implements OnInit {
   username = "";
   password = "";
   loginTitle = "Please login..."
+  userData = undefined;
+  errorMessage = undefined;
 
-  constructor(public dataService: DataServiceProvider) { }
+  constructor(public dataService: DataServiceProvider, private dialogRef: MatDialogRef<LoginComponent>, 
+    @Inject(MAT_DIALOG_DATA) data, private snackBar: MatSnackBar) { 
+
+    }
 
   ngOnInit(): void {
     console.log('ngOnInit of login component');
   }
 
   doLogin() {
-    console.log('doLogin of login component');
-    console.log(this.username);
-    console.log(this.password);
-    console.log(this.dataService);
-
-    this.dataService.doLogin(this.username, this.password);
+    this.dataService.doLogin(this.username, this.password)
+    .subscribe((data) => {
+      this.userData = data;
+      console.log(data);
+      this.snackBar.open('Login successful!', '', {
+        duration: 3000,
+        panelClass: ['success']
+      });
+      this.dialogRef.close(this.userData);
+    }, error => {
+      this.errorMessage = error;
+      this.snackBar.open('Login unsuccessful. Please try again.', '', {
+        duration: 3000,
+        panelClass: ['danger']
+      });
+    });
   }
 
 }

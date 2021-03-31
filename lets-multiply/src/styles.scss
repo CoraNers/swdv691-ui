@@ -3,6 +3,10 @@
 $fontFamilyHeadings: 'Truculenta';
 $fontFamilyBody: 'Maven Pro', sans-serif; 
 
+$colorSuccess: #939b62;
+$colorDanger: #ffb26b;
+$colorWarning: #ffd56b;
+
 html, body { 
     height: 100%; 
     font-family: $fontFamilyBody; 
@@ -40,5 +44,17 @@ body {
     border: 2.5px solid #276678; 
     letter-spacing: 0.5px;
     cursor: pointer;
+}
+
+.success {
+    background-color: $colorSuccess; 
+}
+
+.danger {
+    background-color: $colorDanger;
+}
+
+.mat-simple-snackbar {
+    color: black;
 }
 
