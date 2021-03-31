@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
     console.log('doLogin of login component');
     console.log(this.username);
     console.log(this.password);
+    console.log(this.dataService);
+
+    this.dataService.doLogin(this.username, this.password);
   }
 
 }

@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DataServiceProvider } from 'src/providers/data-service/data-service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { MatInputModule } from '@angular/material/input';
     MatDialogModule,
     BrowserAnimationsModule,
     FormsModule,
-    // HttpClientModule,
+    HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -36,7 +38,8 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule
   ],
   providers: [
-    MatDialog
+    MatDialog,
+    DataServiceProvider
   ],
   bootstrap: [AppComponent]
 })

@@ -11,23 +11,20 @@ export class DataServiceProvider {
   // private dataChangeSubject: Subject<boolean>;
   // // baseURL = "http://localhost:8080";
   // TODO adjust base url for IP address for local testing
-  baseURL = "http://192.168.0.28:8080";
+  baseURL = "http://192.168.0.24:8080";
 
   constructor(public http: HttpClient) {
     // this.dataChangeSubject = new Subject<boolean>();
     // this.dataChanged$ = this.dataChangeSubject.asObservable();
   }
 
-  getOnTheMenuItems(): Observable<any> {
-    return this.http.get(this.baseURL + '/api/onTheMenu/myCollection').pipe(
-      map(this.extractData),
-      catchError(this.handleError)
-    );
-  }
-
   doLogin(username, password) {
-    this.http.get(this.baseURL + 'login?username=' + username + '&password=' + password).subscribe(res => {
+    console.log('inside doLogin');
+    let baseURL = this.baseURL + "/login?username=" + username + "&password=" + password;
+    console.log(baseURL);
+    this.http.get(this.baseURL + '/login?username=' + username + '&password=' + password).subscribe(res => {
       let loginResponse = res;
+      console.log(loginResponse);
     });
   }
 
