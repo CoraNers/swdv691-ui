@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&family=Truculenta:wght@900&display=swap" rel="stylesheet">
+    <title>My Style Guide</title>
+
+    <!-- Site theme -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/styleGuide.css"> -->
+
+	<!-- Include script for font awesome icon library -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+
+<body style="font-family: 'Maven Pro', sans-serif; color: black;">
+    <a name="Top"></a>
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#">
+                    <span class="navbar-brand">
+                        <i class="fas fa-home"></i>&nbsp;Let's Multiply! Style Guide</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-3">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="#font">Font</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#colorTheme">Color Theme</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#headings">Headings</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#buttons">Buttons</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#formElements">Form Elements</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#messages">Messages</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <!-- About -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="about"></a>My Styles</h1>
+                </div>
+                <p>This page contains specific style guide information for my front end interface.</p>
+            </div>
+            <!-- End About -->
+
+            <!-- Fonts -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="fonts"></a>Font</h1>
+                </div>
+                <p>My application utilizes the "Truculenta", "Maven Pro", "sans-serif" font-families with black text.</p>
+                <p>All headings will be in "Truculenta" and all body content will be in "Maven Pro"</p>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End Fonts -->
+
+            <!-- Color Theme -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="colorTheme"></a>Color Theme</h1>
+                </div>
+                <p>My application incorporates the below color scheme in its interface.</p>
+                <div class="box" id="primary1" style="height: 100px; width: 100px; display: inline-block; margin: 0 10px 0 10px; background-color: #F6F5F5"></div>
+                <div class="box" id="primary2" style="height: 100px; width: 100px; display: inline-block; margin: 0 10px 0 10px; background-color: #D3E0EA"></div>
+                <div class="box" id="primary3" style="height: 100px; width: 100px; display: inline-block; margin: 0 10px 0 10px; background-color: #1687A7"></div>
+                <div class="box" id="primary4" style="height: 100px; width: 100px; display: inline-block; margin: 0 10px 0 10px; background-color: #276678"></div>
+                <p>The 4th color in the scheme may or may not be used as an accent color.</p>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End Color Theme -->
+
+            <!-- Headings -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="headings"></a>Headings</h1>
+                </div>
+                <p>The below font sizes and styles are used in the application for various content headings.</p>
+                <h1 class="h1Class" style="font-size: 60px; font-weight: bold; font-family: 'Truculenta'; letter-spacing: 4px;">Heading 1</h1>
+                <h2 class="h2Class" style="font-size: 45px; font-weight: bold; font-family: 'Truculenta'; letter-spacing: 4px;">Heading 2</h2>
+                <h3 class="h3Class" style="font-size: 25px; font-weight: bold; font-family: 'Truculenta'; letter-spacing: 4px;">Heading 3</h3>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End Headings -->
+
+            <!-- Buttons -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="buttons"></a>Buttons</h1>
+                </div>
+                <p>The application will feature buttons that contain the below color and shape:</p>
+                <button class="buttonStyle" style="background-color: #D3E0EA; border-radius: 15px; padding: 15px; color: black; font-weight: bold; font-family: 'Maven Pro', sans-serif; font-size: 16px; border: 2.5px solid #276678; letter-spacing: 0.5px;">My Button</button>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End Buttons -->
+
+            <!-- Form Elements -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="formElements"></a>Form Elements</h1>
+                </div>
+                <p>For the varous forms that the application will contain, it will contain input fields and labels with the below styling:</p>
+                <form>
+                    <label for="name" class="inputLabel">Name</label>
+                    <input type="input" id="name" class="inputField" value="" style="padding: 5px; border: 1px solid #1687A7;">
+                    <br>
+                    <input type="radio" id="radio" value="">
+                    <label for="radio" class="inputLabel">Radio button</label>
+                    <br>
+                    <input type="checkbox" id="checkbox" value="">
+                    <label for="checkbox" class="inputLabel">Checkbox</label>
+                </form>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End Form Elements -->
+
+            <!-- User Messages -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="messages"></a>Messages</h1>
+                </div>
+                <p>For various completed tasks, application notifications will be presented to the user based.  The following contextual messages will be used.</p>
+                <p class="warning" style="background-color: #ffd56b; font-weight: bold; color: black; padding: 15px; border-radius: 15px; font-family: 'Maven Pro', sans-serif; letter-spacing: 0.5px; font-size: 18px;">Warning!</p>
+                <p class="danger" style="background-color: #ffb26b; font-weight: bold; color: black; padding: 15px; border-radius: 15px; font-family: 'Maven Pro', sans-serif; letter-spacing: 0.5px; font-size: 18px;">Danger!</p>
+                <p class="success" style="background-color: #939b62; font-weight: bold; color: black; padding: 15px; border-radius: 15px; font-family: 'Maven Pro', sans-serif; letter-spacing: 0.5px; font-size: 18px;">Success!</p>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End User Messages -->
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted">Copyright My Style Guide</p>
+        </div>
+    </div>
+</body>
+
+</html>
