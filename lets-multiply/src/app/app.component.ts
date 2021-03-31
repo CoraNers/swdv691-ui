@@ -12,6 +12,7 @@ export class AppComponent {
 
   username: string;
   password: string;
+  loggedInFirstName: string;
 
   constructor(public dialog: MatDialog) {}
 
@@ -32,8 +33,8 @@ export class AppComponent {
     let dialogRef = this.dialog.open(LoginComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
+      console.log(result); // this is the userData json from the database
+      this.loggedInFirstName = result.firstName;
     });
   }
 
