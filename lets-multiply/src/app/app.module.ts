@@ -16,12 +16,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { WelcomeComponent } from './welcome/welcome.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
