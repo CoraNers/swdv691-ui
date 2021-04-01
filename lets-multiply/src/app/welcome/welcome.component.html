@@ -1,56 +1,58 @@
-<h2>
-    Welcome {{userData.firstName}}!
-</h2>
+<div class="pageHeaderData"> 
+    <h2>
+        Welcome {{userData.firstName}}!
+    </h2>
 
-<h3>
-    Please select mode and category you want to work on today.<br>
-    You can come back to this page later and play more.
-</h3>
+    <h3>
+        Please select mode and category you want to work on today.<br>
+        You can come back to this page later and play more.
+    </h3>
 
-<div>
-    <form action="">
-        <input type="radio" [(ngModel)]="mode" name="mode" value="practice">Practice<br>
-        <input type="radio" [(ngModel)]="mode" name="mode" value="evaluation">Evaluation
-    </form>
+    <div class="addLeftPadding">
+            <h3><input type="radio" [(ngModel)]="mode" name="mode" value="practice">&nbsp;Practice</h3><br>
+            <h3><input type="radio" [(ngModel)]="mode" name="mode" value="evaluation">&nbsp;Evaluation</h3>
 
-    <div>DEBUGGING Selected Radio: {{mode}}</div>
+        <div>DEBUGGING Selected Radio: {{mode}}</div>
+    </div>
 </div>
 
-<mat-grid-list cols="4" rowHeight="2:1">
+<div width="75%">
+<mat-grid-list cols="4" rowHeight="125px" gutterSize="20px">
     <mat-grid-tile>
-        <button md-button class="buttonStyle">1's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(1)">1's</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button md-button class="buttonStyle">2's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(2)">2's</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button md-button class="buttonStyle">3's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(3)">3's</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button md-button class="buttonStyle">4's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(4)">4's</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button md-button class="buttonStyle">5's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(5)">5's</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button md-button class="buttonStyle">6's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(6)">6's</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button md-button class="buttonStyle">7's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(7)">7's</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button md-button class="buttonStyle">8's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(8)">8's</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button md-button class="buttonStyle">9's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(9)">9's</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button md-button class="buttonStyle">10's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(10)">10's</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button md-button class="buttonStyle">11's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(11)">11's</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button md-button class="buttonStyle">12's</button>
+        <button md-button class="buttonStyleLarge" (click)="playGame(12)">12's</button>
     </mat-grid-tile>
   </mat-grid-list>
+</div>

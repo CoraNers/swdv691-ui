@@ -18,4 +18,8 @@ export class WelcomeComponent implements OnInit {
     console.log(this.userData);
   }
 
+  playGame(categoryNumber) {
+    console.log('decided to play category: ' + categoryNumber);
+  }
+
 }
