@@ -18,41 +18,10 @@
 
 <div width="75%">
 <mat-grid-list cols="4" rowHeight="125px" gutterSize="20px">
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(1)">1's</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(2)">2's</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(3)">3's</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(4)">4's</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(5)">5's</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(6)">6's</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(7)">7's</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(8)">8's</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(9)">9's</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(10)">10's</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(11)">11's</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button md-button class="buttonStyleLarge" (click)="playGame(12)">12's</button>
-    </mat-grid-tile>
+    <div *ngFor="let num of categoryArray; let currentIndex = index">
+        <mat-grid-tile>
+            <button md-button class="buttonStyleLarge" (click)="playGame(currentIndex)">{{currentIndex + 1}}'s</button>
+        </mat-grid-tile>
+    </div>
   </mat-grid-list>
 </div>
