@@ -9,6 +9,7 @@ export class WelcomeComponent implements OnInit {
   @Input() userData: any;
   mode = 'practice';
   categoryArray = new Array(12); 
+  goToHistory = false;
 
   constructor() { 
   }
@@ -23,6 +24,10 @@ export class WelcomeComponent implements OnInit {
     // categoryNumber that gets passed in is zero based - add one before creating and randomizing questions.
     // TODO 
     console.log('decided to play category: ' + categoryNumber);
+  }
+
+  goToUserHistory() {
+    this.goToHistory = true;
   }
 
 }

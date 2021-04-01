@@ -1,36 +1,42 @@
-<div class="pageHeaderData"> 
-    <h2>
-        Welcome {{userData.firstName}}!
-    </h2>
+<div *ngIf="!goToHistory">    
+    <div class="pageHeaderData"> 
+        <h2>
+            Welcome {{userData.firstName}}!
+        </h2>
 
-    <div>
         <div>
-            <h3 class="welcomeDescription">
-                Please select mode and category you want to work on today.<br>
-                You can come back to this page later and play more.
-            </h3>
+            <div>
+                <h3 class="welcomeDescription">
+                    Please select mode and category you want to work on today.<br>
+                    You can come back to this page later and play more.
+                </h3>
+            </div>
+            <div>
+                <h3 class="historyLink" (click)="goToUserHistory()">
+                    See my history
+                </h3>
+            </div>
         </div>
-        <div class="historyLink">
-            <h3>
-                See my history
-            </h3>
+
+        <div class="addLeftPadding">
+                <h3><input type="radio" [(ngModel)]="mode" name="mode" value="practice">&nbsp;Practice</h3><br>
+                <h3><input type="radio" [(ngModel)]="mode" name="mode" value="evaluation">&nbsp;Evaluation</h3>
+
+            <div>DEBUGGING Selected Radio: {{mode}}</div>
         </div>
     </div>
 
-    <div class="addLeftPadding">
-            <h3><input type="radio" [(ngModel)]="mode" name="mode" value="practice">&nbsp;Practice</h3><br>
-            <h3><input type="radio" [(ngModel)]="mode" name="mode" value="evaluation">&nbsp;Evaluation</h3>
-
-        <div>DEBUGGING Selected Radio: {{mode}}</div>
+    <div width="75%">
+        <mat-grid-list cols="4" rowHeight="125px" gutterSize="20px">
+            <div *ngFor="let num of categoryArray; let currentIndex = index">
+                <mat-grid-tile>
+                    <button md-button class="buttonStyleLarge" (click)="playGame(currentIndex)">{{currentIndex + 1}}'s</button>
+                </mat-grid-tile>
+            </div>
+        </mat-grid-list>
     </div>
 </div>
-
-<div width="75%">
-<mat-grid-list cols="4" rowHeight="125px" gutterSize="20px">
-    <div *ngFor="let num of categoryArray; let currentIndex = index">
-        <mat-grid-tile>
-            <button md-button class="buttonStyleLarge" (click)="playGame(currentIndex)">{{currentIndex + 1}}'s</button>
-        </mat-grid-tile>
-    </div>
-  </mat-grid-list>
+<div *ngIf="goToHistory">
+    <app-history></app-history>
+    <!-- <app-history [userData]="getLoggedInUserData"></app-history> -->
 </div>
