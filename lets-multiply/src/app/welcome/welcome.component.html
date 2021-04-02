@@ -40,7 +40,12 @@
         </mat-grid-list>
     </div>
 </div>
+
 <div *ngIf="goToHistory">
     <app-history></app-history>
     <!-- <app-history [userData]="getLoggedInUserData"></app-history> -->
+</div>
+
+<div *ngIf="goToGameplay">
+    <app-gameplay [userData]="userData" [mode]="mode" [category]="categoryToPlay"></app-gameplay>
 </div>

@@ -17,13 +17,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { WelcomeComponent } from './welcome/welcome.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { HistoryComponent } from './history/history.component';
+import { GameplayComponent } from './gameplay/gameplay.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     WelcomeComponent,
-    HistoryComponent
+    HistoryComponent,
+    GameplayComponent
   ],
   imports: [
     BrowserModule,

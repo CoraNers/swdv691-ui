@@ -10,6 +10,8 @@ export class WelcomeComponent implements OnInit {
   mode = 'practice';
   categoryArray = new Array(12); 
   goToHistory = false;
+  goToGameplay = false;
+  categoryToPlay = undefined;
 
   constructor() { 
   }
@@ -22,8 +24,10 @@ export class WelcomeComponent implements OnInit {
 
   playGame(categoryNumber) {
     // categoryNumber that gets passed in is zero based - add one before creating and randomizing questions.
-    // TODO 
+    console.log('MODE!!! ' + this.mode);
     console.log('decided to play category: ' + categoryNumber);
+    this.categoryToPlay = categoryNumber + 1;
+    this.goToGameplay = true;
   }
 
   goToUserHistory() {
