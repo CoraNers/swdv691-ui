@@ -125,6 +125,7 @@ export class GameplayComponent implements OnInit {
     this.submittedAnswer = undefined;
     this.hasSubmitted = undefined;
     this.isCorrect = undefined;
+    this.questionNumber = this.questionNumber + 1;
     console.log('-----------------------------');
     console.log(this.gameplayQuestionsShuffled);
   }
