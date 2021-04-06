@@ -31,14 +31,14 @@ export class LoginComponent implements OnInit {
       this.userData = data;
       console.log(data);
       this.snackBar.open('Login successful!', '', {
-        duration: 3000,
+        duration: 2000,
         panelClass: ['success']
       });
       this.dialogRef.close(this.userData);
     }, error => {
       this.errorMessage = error;
       this.snackBar.open('Login unsuccessful. Please try again.', '', {
-        duration: 3000,
+        duration: 2000,
         panelClass: ['danger']
       });
     });

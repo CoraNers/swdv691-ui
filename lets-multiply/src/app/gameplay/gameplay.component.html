@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<div>
+<div *ngIf="!gameplayFinished">
     <h1>
         {{getNextDisplayQuestion()}}
         <mat-form-field appearance="standard">
@@ -26,22 +26,33 @@
         <mat-grid-list cols="1" rowHeight="125px" gutterSize="20px">
             <mat-grid-tile *ngIf="this.mode == 'practice' && this.isCorrect != undefined">
                 <div *ngIf="this.isCorrect">
-                    Practice - show correct icon
+                    <span class="material-icons">
+                        done
+                    </span>
                 </div>
                 <div *ngIf="!this.isCorrect">
-                    Practice - show incorrect icon
+                    <span class="material-icons">
+                        close
+                    </span>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile *ngIf="this.submittedAnswer != undefined">
                 <div *ngIf="this.hasSubmitted">
                     <button md-button class="buttonStyleLarge gameplay" (click)="next()">Next</button>
                 </div>
-                <div *ngIf="!this.hasSubmitted">
+                <div *ngIf="!this.hasSubmitted && !this.gameplayFinished">
                     <button md-button class="buttonStyleLarge gameplay" (click)="submit()">Submit</button>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>
     </div>
+</div>
+
+<div *ngIf="gameplayFinished">
+    <!-- in theory, 12 minus questionCorrect should give you the incorrect #...  -->
+    <app-completed-gameplay [category]="category" [correct]="questionsCorrect" [incorrect]="questionsIncorrect"
+        [gameplayQuestionsAnswered]="gameplayQuestionsAnswered">
+    </app-completed-gameplay>
 </div>
 
 

@@ -18,6 +18,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { HistoryComponent } from './history/history.component';
 import { GameplayComponent } from './gameplay/gameplay.component';
+import { CompletedGameplayComponent } from './completed-gameplay/completed-gameplay.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GameplayComponent } from './gameplay/gameplay.component';
     LoginComponent,
     WelcomeComponent,
     HistoryComponent,
-    GameplayComponent
+    GameplayComponent,
+    CompletedGameplayComponent
   ],
   imports: [
     BrowserModule,

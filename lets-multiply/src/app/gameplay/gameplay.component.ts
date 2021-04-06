@@ -19,6 +19,7 @@ export class GameplayComponent implements OnInit {
   questionsCorrect = 0;
   questionsIncorrect = 0;
   hasSubmitted = undefined;
+  gameplayFinished = false;
 
   constructor() { }
 
@@ -75,7 +76,14 @@ export class GameplayComponent implements OnInit {
   }
 
   popOffQuestionAnswered() {
-    return this.gameplayQuestionsShuffled.shift();
+    if (this.gameplayQuestionsShuffled.length > 1) {
+      return this.gameplayQuestionsShuffled.shift();
+    } else {
+      this.gameplayFinished = true;
+      // question number has already been incremented.  decrement it so it's accurate
+      this.questionNumber = this.questionNumber - 1;
+      this.finish();
+    }
   }
 
   submit() {
@@ -96,19 +104,12 @@ export class GameplayComponent implements OnInit {
       this.questionsIncorrect = this.questionsIncorrect + 1;
     }
 
-    console.log(this.isCorrect);
-    console.log("Correct " + this.questionsCorrect);
-    console.log("Incorrect " + this.questionsIncorrect);
-
     this.hasSubmitted = true;
 
       // if populated - create JSON data.
-      // pop first off of this.gameplayQuestionsShuffled
       // make request to server to save
     var questionData = this.category + " x " + currentQuestion + " = " + this.submittedAnswer; 
     this.gameplayQuestionsAnswered.push(questionData);
-    console.log('********************************');
-    console.log(this.gameplayQuestionsAnswered);
 
     // if practice mode only
     // if correct - show the checkmark
@@ -121,6 +122,7 @@ export class GameplayComponent implements OnInit {
 
   next() {
     // increment question number for UI
+    // pop first off of this.gameplayQuestionsShuffled
     this.popOffQuestionAnswered();
     this.submittedAnswer = undefined;
     this.hasSubmitted = undefined;
@@ -128,6 +130,12 @@ export class GameplayComponent implements OnInit {
     this.questionNumber = this.questionNumber + 1;
     console.log('-----------------------------');
     console.log(this.gameplayQuestionsShuffled);
+  }
+
+  finish() {
+    console.log('gameplay finished!');
+    console.log("Correct " + this.questionsCorrect);
+    console.log("Incorrect " + this.questionsIncorrect);
   }
 
 }
