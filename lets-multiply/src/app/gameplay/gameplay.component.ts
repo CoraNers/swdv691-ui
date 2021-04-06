@@ -122,6 +122,9 @@ export class GameplayComponent implements OnInit {
   next() {
     // increment question number for UI
     this.popOffQuestionAnswered();
+    this.submittedAnswer = undefined;
+    this.hasSubmitted = undefined;
+    this.isCorrect = undefined;
     console.log('-----------------------------');
     console.log(this.gameplayQuestionsShuffled);
   }
