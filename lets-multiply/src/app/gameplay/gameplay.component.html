@@ -1,19 +1,47 @@
-<p>gameplay works!</p>
+<div class="pageHeaderData"> 
+    <div>
+        <h2 class="welcome">
+            {{modeDisplayable}} the {{category}}'s
+        </h2>
+    </div>
 
-<p>
-    FirstName: {{userData.firstName}}
-</p>
+    <div>
+        <div>
+            <h3 class="description">
+                Question {{questionNumber}} of 12
+            </h3>
+        </div>
+    </div>
+</div>
 
-<p>
-    UserID: {{userData._id}}
-</p>
+<div>
+    <h1>
+        {{getNextDisplayQuestion()}}
+        <mat-form-field appearance="standard">
+            <input type="number" matInput [(ngModel)]="submittedAnswer">
+        </mat-form-field>
+    </h1>
 
-<p>
-    Mode: {{mode}}
-</p>
-
-<p>
-    Category: {{category}}
-</p>
+    <div>
+        <mat-grid-list cols="1" rowHeight="125px" gutterSize="20px">
+            <mat-grid-tile *ngIf="this.mode == 'practice' && this.isCorrect != undefined">
+                <div *ngIf="this.isCorrect">
+                    Practice - show correct icon
+                </div>
+                <div *ngIf="!this.isCorrect">
+                    Practice - show incorrect icon
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="this.submittedAnswer != undefined">
+                <div *ngIf="this.hasSubmitted">
+                    <button md-button class="buttonStyleLarge gameplay" (click)="next()">Next</button>
+                </div>
+                <div *ngIf="!this.hasSubmitted">
+                    <button md-button class="buttonStyleLarge gameplay" (click)="submit()">Submit</button>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
 
 

@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
+
     this.dataService.doLogin(this.username, this.password)
     .subscribe((data) => {
       this.userData = data;
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
         panelClass: ['danger']
       });
     });
+    
   }
 
 }
