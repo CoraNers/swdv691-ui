@@ -10,6 +10,7 @@ export class CompletedGameplayComponent implements OnInit {
   @Input() correct: number;
   @Input() incorrect: number;
   @Input() gameplayQuestionsAnswered: any;
+  @Input() lengthOfTime: String;
 
   constructor() { }
 

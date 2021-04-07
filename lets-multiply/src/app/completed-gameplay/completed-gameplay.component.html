@@ -1,4 +1,24 @@
-<p>completed-gameplay works!</p>
+<div class="pageHeaderData"> 
+    <div>
+        <h2 class="welcome">
+            Good job!
+        </h2>
+    </div>
+
+    <div>
+        <div>
+            <h3 class="description">
+                You have completed your {{category}}'s <br>
+                You answered {{correct}} problems correctly. <br>
+                You answered {{incorrect}} problems incorrectly. <br>
+                NGIF EVALUATION MODE TIME ..... <br>
+                <div *ngFor="let question of gameplayQuestionsAnswered; let currentIndex = index">
+                    <p>{{question}}</p>
+                </div>
+            </h3>
+        </div>
+    </div>
+</div>
 
 <p>
     {{category}}
@@ -11,4 +31,7 @@
 </p>
 <p>
     {{gameplayQuestionsAnswered}}
+</p>
+<p>
+    {{lengthOfTime}}
 </p>

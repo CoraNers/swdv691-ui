@@ -22,6 +22,7 @@ export class GameplayComponent implements OnInit {
   questionsIncorrect = 0;
   hasSubmitted = undefined;
   gameplayFinished = false;
+  lengthOfTime = undefined;
 
   constructor(public dataService: DataServiceProvider, private snackBar: MatSnackBar) { }
 
@@ -81,7 +82,6 @@ export class GameplayComponent implements OnInit {
     if (this.gameplayQuestionsShuffled.length > 1) {
       return this.gameplayQuestionsShuffled.shift();
     } else {
-      this.gameplayFinished = true;
       // question number has already been incremented.  decrement it so it's accurate
       this.questionNumber = this.questionNumber - 1;
       this.finish();
@@ -104,18 +104,8 @@ export class GameplayComponent implements OnInit {
 
     this.hasSubmitted = true;
 
-    // TODO 
-      // if populated - create JSON data.
-      // make request to server to save
     var questionData = this.category + " x " + currentQuestion + " = " + this.submittedAnswer; 
     this.gameplayQuestionsAnswered.push(questionData);
-
-    // if practice mode only
-    // if correct - show the checkmark
-    // if incorrect - show the x 
-
-    // dont call showNextQuestion until next button is clicked
-    // this.showNextQuestion();
 
   }
 
@@ -134,7 +124,8 @@ export class GameplayComponent implements OnInit {
     console.log("Correct " + this.questionsCorrect);
     console.log("Incorrect " + this.questionsIncorrect);
 
-    // TODO make request to backend with correct data to persist...
+    this.gameplayFinished = true;
+
     let requestBody = {
       userId: this.userData._id,
       problemsAndAnswers: this.gameplayQuestionsAnswered,
@@ -143,7 +134,7 @@ export class GameplayComponent implements OnInit {
       date: 'test for testing',
       questionsAttempted: 12,
       questionsCorrect: this.questionsCorrect,
-      lengthOfTime: undefined
+      lengthOfTime: this.lengthOfTime
     };
 
     this.snackBar.open('Saving...', '', {

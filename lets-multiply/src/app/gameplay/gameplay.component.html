@@ -1,4 +1,4 @@
-<div class="pageHeaderData"> 
+<div class="pageHeaderData" *ngIf="!gameplayFinished"> 
     <div>
         <h2 class="welcome">
             {{modeDisplayable}} the {{category}}'s
@@ -51,7 +51,7 @@
 <div *ngIf="gameplayFinished">
     <!-- in theory, 12 minus questionCorrect should give you the incorrect #...  -->
     <app-completed-gameplay [category]="category" [correct]="questionsCorrect" [incorrect]="questionsIncorrect"
-        [gameplayQuestionsAnswered]="gameplayQuestionsAnswered">
+        [gameplayQuestionsAnswered]="gameplayQuestionsAnswered" [lengthOfTime]="lengthOfTime">
     </app-completed-gameplay>
 </div>
 
