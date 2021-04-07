@@ -134,7 +134,7 @@ export class GameplayComponent implements OnInit {
     console.log("Correct " + this.questionsCorrect);
     console.log("Incorrect " + this.questionsIncorrect);
 
-    // TODO make request to backend to save the data...
+    // TODO make request to backend with correct data to persist...
     let requestBody = {
       userId: this.userData._id,
       problemsAndAnswers: this.gameplayQuestionsAnswered,
@@ -144,6 +144,12 @@ export class GameplayComponent implements OnInit {
       questionsCorrect: this.questionsCorrect,
       lengthOfTime: undefined
     };
+
+    this.snackBar.open('Saving...', '', {
+      duration: 2000,
+      panelClass: ['success']
+    });
+    this.dataService.doSubmitGameplay(requestBody);
 
     console.log('REQUEST BODY');
     console.log(requestBody);

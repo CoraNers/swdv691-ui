@@ -19,8 +19,8 @@ export class DataServiceProvider {
     );
   }
 
-  doSubmitGameplay(gameplayData, category) {
-    return this.http.post(this.baseURL + '/play/completed/{category}', gameplayData).subscribe(res => {
+  doSubmitGameplay(gameplayData) {
+    return this.http.post(this.baseURL + '/play/completed', gameplayData).subscribe(res => {
       // TODO 
       // this.putItems = res;
       // this.dataChangeSubject.next(true);
