@@ -19,6 +19,14 @@ export class DataServiceProvider {
     );
   }
 
+  doSubmitGameplay(gameplayData, category) {
+    return this.http.post(this.baseURL + '/play/completed/{category}', gameplayData).subscribe(res => {
+      // TODO 
+      // this.putItems = res;
+      // this.dataChangeSubject.next(true);
+    })
+  }
+
   private extractData(res: Response) {
     let body = res;
     return body || {};

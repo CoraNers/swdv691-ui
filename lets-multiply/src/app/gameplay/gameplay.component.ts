@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataServiceProvider } from 'src/providers/data-service/data-service';
 
 @Component({
   selector: 'app-gameplay',
@@ -21,7 +23,7 @@ export class GameplayComponent implements OnInit {
   hasSubmitted = undefined;
   gameplayFinished = false;
 
-  constructor() { }
+  constructor(public dataService: DataServiceProvider, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     if (this.mode == 'practice') {
@@ -89,10 +91,6 @@ export class GameplayComponent implements OnInit {
   submit() {
     // the user has just answered a question - verify their answer is correct or not
     // - and change out the button text
-    console.log('1ST QUESTION PART ' + this.category);
-    console.log('2ND QUESTION PART ' + this.getQuestion());
-    console.log('SUBMITTED ANSWER ' + this.submittedAnswer);
-
     var currentQuestion = this.getQuestion();
 
     // TODO undefined and/or invalid value checking
@@ -106,6 +104,7 @@ export class GameplayComponent implements OnInit {
 
     this.hasSubmitted = true;
 
+    // TODO 
       // if populated - create JSON data.
       // make request to server to save
     var questionData = this.category + " x " + currentQuestion + " = " + this.submittedAnswer; 
@@ -128,14 +127,26 @@ export class GameplayComponent implements OnInit {
     this.hasSubmitted = undefined;
     this.isCorrect = undefined;
     this.questionNumber = this.questionNumber + 1;
-    console.log('-----------------------------');
-    console.log(this.gameplayQuestionsShuffled);
   }
 
   finish() {
     console.log('gameplay finished!');
     console.log("Correct " + this.questionsCorrect);
     console.log("Incorrect " + this.questionsIncorrect);
+
+    // TODO make request to backend to save the data...
+    let requestBody = {
+      userId: this.userData._id,
+      problemsAndAnswers: this.gameplayQuestionsAnswered,
+      mode: this.mode,
+      date: 'test for testing',
+      questionsAttempted: 12,
+      questionsCorrect: this.questionsCorrect,
+      lengthOfTime: undefined
+    };
+
+    console.log('REQUEST BODY');
+    console.log(requestBody);
   }
 
 }

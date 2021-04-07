@@ -40,7 +40,7 @@
                 <div *ngIf="this.hasSubmitted">
                     <button md-button class="buttonStyleLarge gameplay" (click)="next()">Next</button>
                 </div>
-                <div *ngIf="!this.hasSubmitted && !this.gameplayFinished">
+                <div *ngIf="!this.hasSubmitted">
                     <button md-button class="buttonStyleLarge gameplay" (click)="submit()">Submit</button>
                 </div>
             </mat-grid-tile>
