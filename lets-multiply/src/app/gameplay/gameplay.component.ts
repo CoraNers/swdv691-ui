@@ -139,6 +139,7 @@ export class GameplayComponent implements OnInit {
       userId: this.userData._id,
       problemsAndAnswers: this.gameplayQuestionsAnswered,
       mode: this.mode,
+      category: this.category,
       date: 'test for testing',
       questionsAttempted: 12,
       questionsCorrect: this.questionsCorrect,
