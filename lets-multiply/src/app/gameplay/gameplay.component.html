@@ -17,7 +17,7 @@
 <div *ngIf="!gameplayFinished">
     <h1>
         {{getNextDisplayQuestion()}}
-        <mat-form-field appearance="standard">
+        <mat-form-field class="answerClass" appearance="standard">
             <input type="number" matInput [(ngModel)]="submittedAnswer">
         </mat-form-field>
     </h1>
