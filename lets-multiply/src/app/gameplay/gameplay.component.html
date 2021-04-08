@@ -20,33 +20,33 @@
         <mat-form-field class="answerClass" appearance="standard">
             <input type="number" matInput [(ngModel)]="submittedAnswer">
         </mat-form-field>
-    </h1>
-
-    <div>
-        <mat-grid-list cols="1" rowHeight="125px" gutterSize="20px">
-            <mat-grid-tile *ngIf="this.mode == 'practice' && this.isCorrect != undefined">
+        <div>
+            <div *ngIf="this.mode == 'practice' && this.isCorrect != undefined">
                 <div *ngIf="this.isCorrect">
-                    <span class="material-icons">
+                    <span class="material-icons correct">
                         done
                     </span>
+                    <h3>Correct!</h3>
                 </div>
                 <div *ngIf="!this.isCorrect">
-                    <span class="material-icons">
+                    <span class="material-icons incorrect">
                         close
                     </span>
+                    <h3>Nice try. The correct answer is {{this.correctAnswer}}.</h3>
                 </div>
-            </mat-grid-tile>
-            <mat-grid-tile *ngIf="this.submittedAnswer != undefined">
+            </div>
+            <div *ngIf="this.submittedAnswer != undefined">
                 <div *ngIf="this.hasSubmitted">
                     <button md-button class="buttonStyleLarge gameplay" (click)="next()">Next</button>
                 </div>
                 <div *ngIf="!this.hasSubmitted">
                     <button md-button class="buttonStyleLarge gameplay" (click)="submit()">Submit</button>
                 </div>
-            </mat-grid-tile>
-        </mat-grid-list>
-    </div>
-</div>
+            </div>
+        </div>
+    </h1>
+
+    
 
 <div *ngIf="gameplayFinished">
     <!-- in theory, 12 minus questionCorrect should give you the incorrect #...  -->

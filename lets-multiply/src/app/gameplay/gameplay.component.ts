@@ -23,6 +23,7 @@ export class GameplayComponent implements OnInit {
   hasSubmitted = undefined;
   gameplayFinished = false;
   lengthOfTime = undefined;
+  correctAnswer = undefined;
 
   constructor(public dataService: DataServiceProvider, private snackBar: MatSnackBar) { }
 
@@ -94,7 +95,8 @@ export class GameplayComponent implements OnInit {
     var currentQuestion = this.getQuestion();
 
     // TODO undefined and/or invalid value checking
-    if ((this.category * currentQuestion) == this.submittedAnswer)  {
+    this.correctAnswer = this.category * currentQuestion;
+    if (this.correctAnswer == this.submittedAnswer)  {
       this.isCorrect = true;
       this.questionsCorrect = this.questionsCorrect + 1;
     } else {
