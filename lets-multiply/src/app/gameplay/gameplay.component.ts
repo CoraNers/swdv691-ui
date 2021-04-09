@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DataServiceProvider } from 'src/providers/data-service/data-service';
+import { Observable, Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-gameplay',
@@ -22,8 +23,9 @@ export class GameplayComponent implements OnInit {
   questionsIncorrect = 0;
   hasSubmitted = undefined;
   gameplayFinished = false;
-  lengthOfTime = undefined;
+  lengthOfTime: Subscription;
   correctAnswer = undefined;
+  timeInSecondsToComplete: number = undefined;;
 
   constructor(public dataService: DataServiceProvider, private snackBar: MatSnackBar) { }
 
@@ -46,7 +48,7 @@ export class GameplayComponent implements OnInit {
 
     // shuffle the values so they're not in order
     this.gameplayQuestionsShuffled = this.shuffle(gameplayQuestions);
-    console.log(this.gameplayQuestionsShuffled);
+    this.startTimer();
   }
 
   shuffle(gamePlayQuestions) {
@@ -65,6 +67,13 @@ export class GameplayComponent implements OnInit {
     }
   
     return gamePlayQuestions;
+  }
+
+  startTimer() {
+    this.lengthOfTime = timer(1000, 2000).subscribe(t => {
+      // each tick 't' goes every second and will overwrite the data in timeInSecondsToComplete
+      this.timeInSecondsToComplete = t;
+    });
   }
 
   getNextDisplayQuestion() {
@@ -108,7 +117,6 @@ export class GameplayComponent implements OnInit {
 
     var questionData = this.category + " x " + currentQuestion + " = " + this.submittedAnswer; 
     this.gameplayQuestionsAnswered.push(questionData);
-
   }
 
   next() {
@@ -122,21 +130,22 @@ export class GameplayComponent implements OnInit {
   }
 
   finish() {
-    console.log('gameplay finished!');
-    console.log("Correct " + this.questionsCorrect);
-    console.log("Incorrect " + this.questionsIncorrect);
-
-    this.gameplayFinished = true;
+    // we always start a timer in the background.  unsubscribe so the timer stops.
+    // if in practice mode, make the data undefined in the JSON body.  For evaluation mode, it will be populated and sent.
+    this.lengthOfTime.unsubscribe();
+    if (this.mode == 'practice') {
+      this.timeInSecondsToComplete = undefined;
+    }
 
     let requestBody = {
       userId: this.userData._id,
       problemsAndAnswers: this.gameplayQuestionsAnswered,
       mode: this.mode,
       category: this.category,
-      date: 'test for testing',
+      date: new Date().toString(),
       questionsAttempted: 12,
       questionsCorrect: this.questionsCorrect,
-      lengthOfTime: this.lengthOfTime
+      lengthOfTime: this.timeInSecondsToComplete
     };
 
     this.snackBar.open('Saving...', '', {
@@ -145,8 +154,7 @@ export class GameplayComponent implements OnInit {
     });
     this.dataService.doSubmitGameplay(requestBody);
 
-    console.log('REQUEST BODY');
-    console.log(requestBody);
+    this.gameplayFinished = true;
   }
 
 }

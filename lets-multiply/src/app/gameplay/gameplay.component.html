@@ -45,14 +45,16 @@
             </div>
         </div>
     </h1>
-
-    
+</div>
 
 <div *ngIf="gameplayFinished">
     <!-- in theory, 12 minus questionCorrect should give you the incorrect #...  -->
     <app-completed-gameplay [category]="category" [correct]="questionsCorrect" [incorrect]="questionsIncorrect"
-        [gameplayQuestionsAnswered]="gameplayQuestionsAnswered" [lengthOfTime]="lengthOfTime">
+        [gameplayQuestionsAnswered]="gameplayQuestionsAnswered">
     </app-completed-gameplay>
+    <!-- <app-completed-gameplay [category]="category" [correct]="questionsCorrect" [incorrect]="questionsIncorrect"
+        [gameplayQuestionsAnswered]="gameplayQuestionsAnswered" [lengthOfTime]="timeInSecondsToComplete">
+    </app-completed-gameplay> -->
 </div>
 
 
