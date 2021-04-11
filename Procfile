@@ -1,1 +1,1 @@
-web: node src/lets-multiply.js
+web: node src/server.js
