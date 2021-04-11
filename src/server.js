@@ -5,6 +5,7 @@ const path = require('path');
 const app = express();
 
 // Serve only the static files form the dist directory
+console.log('******************************* ' + __dirname);
 app.use(express.static(__dirname + '../dist/lets-multiply'));
 
 app.get('/*', function(req,res) {
