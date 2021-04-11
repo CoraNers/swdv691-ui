@@ -1,24 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './login/login.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
-import { DataServiceProvider } from 'src/providers/data-service/data-service';
-import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { WelcomeComponent } from './welcome/welcome.component';
-import {MatGridListModule} from '@angular/material/grid-list';
-import { HistoryComponent } from './history/history.component';
-import { GameplayComponent } from './gameplay/gameplay.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DataServiceProvider } from 'src/providers/data-service/data-service';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { CompletedGameplayComponent } from './completed-gameplay/completed-gameplay.component';
+import { GameplayComponent } from './gameplay/gameplay.component';
+import { HistoryComponent } from './history/history.component';
+import { LoginComponent } from './login/login.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+
 
 @NgModule({
   declarations: [
@@ -53,6 +53,7 @@ import { CompletedGameplayComponent } from './completed-gameplay/completed-gamep
     MatDialog,
     DataServiceProvider
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoginComponent]
 })
 export class AppModule { }
