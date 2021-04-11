@@ -10,7 +10,7 @@ export class DataServiceProvider {
 
   // baseURL = "http://localhost:8080";
   // baseURL = "https://192.168.0.24:8080";
-  baseURL = "https://cners-capstone-backend.herokuapp.com/";
+  baseURL = "https://cners-capstone-backend.herokuapp.com";
 
   constructor(public http: HttpClient) {
   }
