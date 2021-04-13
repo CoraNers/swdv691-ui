@@ -1,37 +1,39 @@
-<div class="pageHeaderData"> 
-    <div>
-        <h2 class="welcome">
-            Good job!
-        </h2>
+<div *ngIf="!goToHistory">    
+    <div class="pageHeaderData"> 
+        <div>
+            <h2 class="welcome">
+                Good job!!
+            </h2>
+
+            <button md-button class="buttonStyle logoutButton">Logout</button>
+        </div>
+
+        <div>
+            <div>
+                <h3 class="description">
+                    You have completed your {{category}}'s <br>
+                    You answered {{correct}} problems correctly. <br>
+                    You answered {{incorrect}} problems incorrectly. <br>
+                    NGIF EVALUATION MODE TIME ..... <br>
+                    {{gameplayQuestionsAnswered}}
+                    Time in seconds {{lengthOfTime}}
+                    <div *ngFor="let question of gameplayQuestionsAnswered; let currentIndex = index">
+                        <p>{{question}}</p>
+                    </div>
+                </h3>
+            </div>
+            <div>
+                <h3 class="historyLink" (click)="goToUserHistory()">
+                    See my history
+                </h3>
+            </div>
+        </div>
+
     </div>
 
-    <div>
-        <div>
-            <h3 class="description">
-                You have completed your {{category}}'s <br>
-                You answered {{correct}} problems correctly. <br>
-                You answered {{incorrect}} problems incorrectly. <br>
-                NGIF EVALUATION MODE TIME ..... <br>
-                <div *ngFor="let question of gameplayQuestionsAnswered; let currentIndex = index">
-                    <p>{{question}}</p>
-                </div>
-            </h3>
-        </div>
-    </div>
 </div>
 
-<p>
-    {{category}}
-</p>
-<p>
-    {{correct}}
-</p>
-<p>
-    {{incorrect}}
-</p>
-<p>
-    {{gameplayQuestionsAnswered}}
-</p>
-<p>
-    {{lengthOfTime}}
-</p>
+<div *ngIf="goToHistory">
+    <app-history></app-history>
+    <!-- <app-history [userData]="getLoggedInUserData"></app-history> -->
+</div>

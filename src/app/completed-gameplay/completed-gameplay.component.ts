@@ -12,6 +12,8 @@ export class CompletedGameplayComponent implements OnInit {
   @Input() gameplayQuestionsAnswered: any;
   @Input() lengthOfTime: String;
 
+  goToHistory = false;
+
   constructor() { }
 
   ngOnInit(): void {
