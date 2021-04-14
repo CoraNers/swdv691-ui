@@ -1,7 +1,7 @@
 <div *ngIf="!goToHistory">    
     <div class="pageHeaderData"> 
         <div>
-            <h2 class="welcome">
+            <h2 class="welcome completedGame">
                 Good job!!
             </h2>
 
@@ -9,22 +9,25 @@
         </div>
 
         <div>
+            <h3 class="historyLink completed" (click)="goToUserHistory()">
+                See my history
+            </h3>
+        </div>
+
+        <div>
             <div>
                 <h3 class="description">
-                    You have completed your {{category}}'s <br>
-                    You answered {{correct}} problems correctly. <br>
-                    You answered {{incorrect}} problems incorrectly. <br>
-                    NGIF EVALUATION MODE TIME ..... <br>
-                    {{gameplayQuestionsAnswered}}
-                    Time in seconds {{lengthOfTime}}
+                    <p>You have completed your {{category}}'s.</p>
+                    <p>You answered {{correct}} {{correct == 1 ? 'problem' : 'problems'}} correctly.</p>
+                    <p>You answered {{incorrect}} {{incorrect == 1 ? 'problem' : 'problems'}} incorrectly.</p>
+                    <p>DEBUGGING {{lengthOfTime}}</p>
+                    <!-- <div *ngIf=lengthOfTime != undefined>
+                        ngif length of time is not undefined
+                    </div> -->
+                    <p>Questions and Answers (in order): </p>
                     <div *ngFor="let question of gameplayQuestionsAnswered; let currentIndex = index">
-                        <p>{{question}}</p>
+                        <p class="questionData">{{question}}</p>
                     </div>
-                </h3>
-            </div>
-            <div>
-                <h3 class="historyLink" (click)="goToUserHistory()">
-                    See my history
                 </h3>
             </div>
         </div>

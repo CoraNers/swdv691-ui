@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class DataServiceProvider {
 
-  // baseURL = "https://192.168.0.24:8080";
+  // baseURL = "https://192.168.0.21:8080";
   baseURL = "https://cners-capstone-backend.herokuapp.com";
 
   constructor(public http: HttpClient) {
