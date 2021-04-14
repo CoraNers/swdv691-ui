@@ -17,13 +17,12 @@
         <div>
             <div>
                 <h3 class="description">
-                    <p>You have completed your {{category}}'s.</p>
+                    <p>You have completed your {{category}}'s!</p>
                     <p>You answered {{correct}} {{correct == 1 ? 'problem' : 'problems'}} correctly.</p>
                     <p>You answered {{incorrect}} {{incorrect == 1 ? 'problem' : 'problems'}} incorrectly.</p>
-                    <p>DEBUGGING {{lengthOfTime}}</p>
-                    <!-- <div *ngIf=lengthOfTime != undefined>
-                        ngif length of time is not undefined
-                    </div> -->
+                    <div *ngIf=timeDisplayable>
+                        <p>It took {{timeDisplayable}} to complete the {{category}}'s in Evaluation mode.</p>
+                    </div>
                     <p>Questions and Answers (in order): </p>
                     <div *ngFor="let question of gameplayQuestionsAnswered; let currentIndex = index">
                         <p class="questionData">{{question}}</p>

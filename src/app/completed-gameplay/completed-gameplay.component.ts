@@ -23,13 +23,9 @@ export class CompletedGameplayComponent implements OnInit {
   }
 
   convertTimeInSecondsForDisplayableTime() {
-    if (this.timeInSecondsToComplete > 60) {
-      // the user took more than 1 minute to complete the exercise.
-      // convert to minutes and seconds
-      var minutesAndSeconds = this.timeInSecondsToComplete / 60;
-      console.log('MINUTES AND SECONDS', minutesAndSeconds);
-
-    }
+    var minutes = Math.floor(this.timeInSecondsToComplete / 60);
+    var seconds = this.timeInSecondsToComplete - minutes * 60;
+    this.timeDisplayable = minutes + " minutes " + seconds + " seconds";
   }
 
   goToUserHistory() {
