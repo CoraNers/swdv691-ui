@@ -37,8 +37,6 @@ export class AppComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       this.getLoggedInUserData = result;
-      console.log('*******');
-      console.log(this.getLoggedInUserData);
       this.goToWelcome = true;
     });
   }

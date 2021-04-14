@@ -11,6 +11,7 @@ export class CompletedGameplayComponent implements OnInit {
   @Input() incorrect: number;
   @Input() gameplayQuestionsAnswered: any;
   @Input() timeInSecondsToComplete: any;
+  @Input() userData: any;
 
   goToHistory = false;
   timeDisplayable = undefined;
@@ -18,7 +19,6 @@ export class CompletedGameplayComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('timeInSecondsToComplete of time - ' + this.timeInSecondsToComplete);
     this.convertTimeInSecondsForDisplayableTime();
   }
 

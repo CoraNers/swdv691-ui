@@ -23,9 +23,16 @@ export class DataServiceProvider {
 
   doSubmitGameplay(gameplayData) {
     return this.http.post(this.baseURL + '/play/completed', gameplayData).subscribe(res => {
-      console.log('*****************************************');
       console.log(res);
     })
+  }
+
+  doGetHistory(userId) {
+    console.log('****** doGetHistory API call with userId: ', userId);
+    return this.http.get(this.baseURL + '/history/' + userId).pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    );
   }
 
   private extractData(res: Response) {

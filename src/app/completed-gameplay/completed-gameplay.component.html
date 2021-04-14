@@ -20,7 +20,7 @@
                     <p>You have completed your {{category}}'s!</p>
                     <p>You answered {{correct}} {{correct == 1 ? 'problem' : 'problems'}} correctly.</p>
                     <p>You answered {{incorrect}} {{incorrect == 1 ? 'problem' : 'problems'}} incorrectly.</p>
-                    <div *ngIf=timeDisplayable>
+                    <div *ngIf="timeInSecondsToComplete !== undefined">
                         <p>It took {{timeDisplayable}} to complete the {{category}}'s in Evaluation mode.</p>
                     </div>
                     <p>Questions and Answers (in order): </p>
@@ -36,6 +36,5 @@
 </div>
 
 <div *ngIf="goToHistory">
-    <app-history></app-history>
-    <!-- <app-history [userData]="getLoggedInUserData"></app-history> -->
+    <app-history [userData]="userData"></app-history>
 </div>
