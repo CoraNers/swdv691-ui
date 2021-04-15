@@ -18,6 +18,7 @@ export class HistoryComponent implements OnInit {
   }
 
   fetchHistory() {
+    console.log('HISTORY COMPONENT USERID---- ', this.userData._id);
     this.dataService.doGetHistory(this.userData._id)
     .subscribe((data) => {
       this.userData = data;
