@@ -15,7 +15,6 @@ export class DataServiceProvider {
   }
 
   doLogin(username, password) {
-    console.log('calling doLogin');
     return this.http.get(this.baseURL + '/login?username=' + username + '&password=' + password).pipe(
       map(this.extractData),
       catchError(this.handleError)
@@ -23,14 +22,12 @@ export class DataServiceProvider {
   }
 
   doSubmitGameplay(gameplayData) {
-    console.log('calling doSubmitGameplay');
     return this.http.post(this.baseURL + '/play/completed', gameplayData).subscribe(res => {
       console.log(res);
     })
   }
 
   doGetHistory(userId) {
-    console.log('****** doGetHistory API call with userId: ', userId);
     return this.http.get(this.baseURL + '/history/' + userId).pipe(
       map(this.extractData),
       catchError(this.handleError)

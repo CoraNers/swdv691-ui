@@ -10,6 +10,7 @@ import { DataServiceProvider } from 'src/providers/data-service/data-service';
 export class HistoryComponent implements OnInit {
   @Input() userData: any;
   errorMessage = undefined;
+  historyData: any;
 
   constructor(public dataService: DataServiceProvider, private snackBar: MatSnackBar) { }
 
@@ -18,11 +19,11 @@ export class HistoryComponent implements OnInit {
   }
 
   fetchHistory() {
-    console.log('HISTORY COMPONENT USERID---- ', this.userData._id);
     this.dataService.doGetHistory(this.userData._id)
     .subscribe((data) => {
-      this.userData = data;
-      console.log(data);
+      this.historyData = data;
+      console.log('HISTORY DATA RETURNED');
+      console.log(this.historyData);
     }, error => {
       this.errorMessage = error;
       this.snackBar.open('Error while getting user history. Please try again later.', '', {
