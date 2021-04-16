@@ -1,1 +1,8 @@
 <p>history works!</p>
+
+<div *ngIf="historyData.size() > 0">
+    We have history data
+</div>
+<div *ngIf="historyData.size() == 0">
+    We have no history data
+</div>
