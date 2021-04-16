@@ -18,7 +18,7 @@ import { GameplayComponent } from './gameplay/gameplay.component';
 import { HistoryComponent } from './history/history.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule
   ],
   exports: [
     MatDialogModule,
