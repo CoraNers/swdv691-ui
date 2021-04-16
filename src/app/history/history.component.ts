@@ -12,7 +12,8 @@ export class HistoryComponent implements OnInit {
   errorMessage = undefined;
   historyData = undefined;
   // dataSource = [];
-  displayedColumns: string[] = ['Date/Time', 'Questions Attempted', '% Correct', 'Time', 'Detail URL'];
+  // displayedColumns: string[] = ['Date/Time', 'Questions Attempted', '% Correct', 'Time', 'Detail URL'];
+  displayedColumns: string[] = ['date'];
 
   constructor(public dataService: DataServiceProvider, private snackBar: MatSnackBar) { }
 
