@@ -11,7 +11,8 @@ export class HistoryComponent implements OnInit {
   @Input() userData: any;
   errorMessage = undefined;
   historyData = undefined;
-  dataSource = [];
+  // dataSource = [];
+  displayedColumns: string[] = ['Date/Time', 'Questions Attempted', '% Correct', 'Time', 'Detail URL'];
 
   constructor(public dataService: DataServiceProvider, private snackBar: MatSnackBar) { }
 
@@ -25,7 +26,7 @@ export class HistoryComponent implements OnInit {
       this.historyData = data;
       console.log('HISTORY DATA RETURNED');
       console.log(this.historyData);
-      this.dataSource = this.historyData;
+      // this.dataSource = this.historyData;
     }, error => {
       this.errorMessage = error;
       this.snackBar.open('Error while getting user history. Please try again later.', '', {
