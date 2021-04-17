@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
     this.dataService.doLogin(this.username, this.password)
     .subscribe((data) => {
       this.userData = data;
-      console.log(data);
       this.snackBar.open('Login successful!', '', {
         duration: 2000,
         panelClass: ['success']

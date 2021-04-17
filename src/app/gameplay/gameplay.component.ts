@@ -72,7 +72,6 @@ export class GameplayComponent implements OnInit {
   startTimer() {
     this.lengthOfTime = timer(1000, 2000).subscribe(t => {
       // each tick 't' goes every second and will overwrite the data in timeInSecondsToComplete
-      console.log('tick ' + t);
       this.timeInSecondsToComplete = t;
     });
   }

@@ -25,8 +25,6 @@ export class HistoryComponent implements OnInit {
     this.dataService.doGetHistory(this.userData._id)
     .subscribe((data) => {
       this.historyData = data;
-      console.log('HISTORY DATA RETURNED');
-      console.log(this.historyData);
     }, error => {
       this.errorMessage = error;
       this.snackBar.open('Error while getting user history. Please try again later.', '', {
