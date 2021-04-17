@@ -14,7 +14,7 @@
                     <td>{{historyPiece.questionsAttempted}}</td>
                     <td>{{getPercentage(historyPiece.questionsCorrect)}}%</td>
                     <td>{{parseLengthOfTime(historyPiece.lengthOfTime)}}</td>
-                    <td>{{historyPiece._id}}</td>
+                    <td className="linkToHistoryRow">RowID: {{historyPiece._id}}</td>
                 </tr>
             </ng-container>
         </table>
