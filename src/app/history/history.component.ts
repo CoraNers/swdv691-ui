@@ -13,7 +13,7 @@ export class HistoryComponent implements OnInit {
   historyData = undefined;
   // dataSource = [];
   // displayedColumns: string[] = ['Date/Time', 'Questions Attempted', '% Correct', 'Time', 'Detail URL'];
-  displayedColumns: string[] = ['date'];
+  displayedColumns: string[] = ['date', 'questionsAttempted'];
 
   constructor(public dataService: DataServiceProvider, private snackBar: MatSnackBar) { }
 
