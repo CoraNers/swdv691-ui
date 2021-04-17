@@ -1,3 +1,5 @@
+@import "../../styles.scss";
+
 .gameplay {
     width: 175px;
 }
@@ -9,12 +11,12 @@
 
 .correct {
     font-size: 300px;
-    color: #939b62;
+    color: $colorSuccess;
     margin-top: -50px;
 }
 
 .incorrect {
     font-size: 300px;
-    color: #ffb26b;
+    color: $colorDanger;
     margin-top: -50px;
 }

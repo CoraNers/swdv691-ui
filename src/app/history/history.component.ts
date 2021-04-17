@@ -27,7 +27,6 @@ export class HistoryComponent implements OnInit {
       this.historyData = data;
       console.log('HISTORY DATA RETURNED');
       console.log(this.historyData);
-      // this.dataSource = this.historyData;
     }, error => {
       this.errorMessage = error;
       this.snackBar.open('Error while getting user history. Please try again later.', '', {
@@ -35,6 +34,36 @@ export class HistoryComponent implements OnInit {
         panelClass: ['danger']
       });
     });
+  }
+
+  getPercentage(numCorrect) {
+    return (numCorrect / 12 * 100).toFixed(2);
+  }
+
+  parseDate(dateToParse) {
+    let regex = /(.* .*:\d\d )/;
+    let dateParts = regex.exec(dateToParse);
+    return dateParts[0]; 
+  }
+
+  parseLengthOfTime(lengthOfTime) {
+    if (lengthOfTime) {
+      if (lengthOfTime > 60) {
+        // more than 60 seconds for 12 questions - convert to minutes and seconds for display
+        return this.convertToMinutesAndSeconds(lengthOfTime);
+      } else {
+        // less than 60 seconds for 12 questions - display nicely
+        return lengthOfTime + " sec.";
+      }
+    } else {
+      return "";
+    }
+  }
+
+  convertToMinutesAndSeconds(time) {
+    let minutes = Math.floor(time / 60);
+    let seconds = time - minutes * 60;
+    return minutes + " min. " + seconds + " sec.";
   }
 
 }

@@ -1,0 +1,31 @@
+@import "../../styles.scss";
+
+.historyTable {
+    padding-top: 50px;
+    border-collapse: collapse;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.historyTable td, .historyTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.historyTable tr:nth-child(even) {
+    background-color: $secondaryColor;
+}
+
+.historyTable tr:hover {
+    background-color: #ddd;
+}
+
+.historyTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: $accentColor2;
+    color: $primaryColor;
+  }
