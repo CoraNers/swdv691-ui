@@ -14,11 +14,6 @@
     padding: 8px;
 }
 
-.historyTable td, .historyTable th .linkToHistoryRow {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 .historyTable tr:nth-child(even) {
     background-color: $secondaryColor;
 }
@@ -33,4 +28,9 @@
     text-align: left;
     background-color: $accentColor2;
     color: $primaryColor;
+}
+
+.linkToHistoryRow {
+    text-decoration: underline;
+    cursor: pointer;
 }

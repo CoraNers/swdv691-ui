@@ -11,9 +11,7 @@ export class HistoryComponent implements OnInit {
   @Input() userData: any;
   errorMessage = undefined;
   historyData = undefined;
-  // dataSource = [];
-  // displayedColumns: string[] = ['Date/Time', 'Questions Attempted', '% Correct', 'Time', 'Detail URL'];
-  displayedColumns: string[] = ['date', 'questionsAttempted', 'percentCorrect'];
+  doGoHome = false;
 
   constructor(public dataService: DataServiceProvider, private snackBar: MatSnackBar) { }
 
@@ -62,6 +60,10 @@ export class HistoryComponent implements OnInit {
     let minutes = Math.floor(time / 60);
     let seconds = time - minutes * 60;
     return minutes + " min. " + seconds + " sec.";
+  }
+
+  goHome() {
+    this.doGoHome = true;
   }
 
 }

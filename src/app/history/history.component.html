@@ -1,25 +1,35 @@
-<div *ngIf="this.historyData">
-    <div *ngIf="this.historyData.length > 0">
-        <table class="historyTable">
-            <tr>
-                <th>Date/Time</th>
-                <th>Questions Attempted</th>
-                <th>Percent Correct</th>
-                <th>Time</th>
-                <th>Link to Details</th>
-            </tr>
-            <ng-container *ngFor="let historyPiece of this.historyData">
+<div *ngIf=!doGoHome>
+    <div>
+        <button md-button class="buttonStyle goHomeButton" (click)="goHome()">Go Home</button>
+    </div>
+
+    <div *ngIf="this.historyData">
+        <div *ngIf="this.historyData.length > 0">
+            <table class="historyTable">
                 <tr>
-                    <td>{{parseDate(historyPiece.date)}}</td>
-                    <td>{{historyPiece.questionsAttempted}}</td>
-                    <td>{{getPercentage(historyPiece.questionsCorrect)}}%</td>
-                    <td>{{parseLengthOfTime(historyPiece.lengthOfTime)}}</td>
-                    <td className="linkToHistoryRow">RowID: {{historyPiece._id}}</td>
+                    <th>Date/Time</th>
+                    <th>Questions Attempted</th>
+                    <th>Percent Correct</th>
+                    <th>Time</th>
+                    <th>Link to Details</th>
                 </tr>
-            </ng-container>
-        </table>
+                <ng-container *ngFor="let historyPiece of this.historyData">
+                    <tr>
+                        <td>{{parseDate(historyPiece.date)}}</td>
+                        <td>{{historyPiece.questionsAttempted}}</td>
+                        <td>{{getPercentage(historyPiece.questionsCorrect)}}%</td>
+                        <td>{{parseLengthOfTime(historyPiece.lengthOfTime)}}</td>
+                        <td className="linkToHistoryRow">RowID: {{historyPiece._id}}</td>
+                    </tr>
+                </ng-container>
+            </table>
+        </div>
+        <div *ngIf="this.historyData.length == 0 || this.historyData == undefined">
+            We have no history data
+        </div>
     </div>
-    <div *ngIf="this.historyData.length == 0 || this.historyData == undefined">
-        We have no history data
-    </div>
+</div>
+
+<div *ngIf="doGoHome">
+    <app-welcome [userData]="userData"></app-welcome>
 </div>
