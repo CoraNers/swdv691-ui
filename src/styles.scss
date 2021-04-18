@@ -67,14 +67,14 @@ body {
 }
 
 .buttonStyle {
-    background-color: #D3E0EA; 
+    background-color: $secondaryColor; 
     border-radius: 15px; 
     padding: 15px; 
     color: black; 
     font-weight: bold; 
     font-family: $fontFamilyBody;
     font-size: 16px; 
-    border: 2.5px solid #276678; 
+    border: 2.5px solid $accentColor2; 
     letter-spacing: 0.5px;
     cursor: pointer;
     width: 100px;
@@ -98,14 +98,14 @@ body {
 }
 
 .buttonStyleLarge {
-    background-color: #D3E0EA; 
+    background-color: $secondaryColor; 
     border-radius: 15px; 
     padding: 15px; 
     color: black; 
     font-weight: bold; 
     font-family: 'Maven Pro', sans-serif;
     font-size: 30px; 
-    border: 2.5px solid #276678; 
+    border: 2.5px solid $accentColor2; 
     letter-spacing: 0.5px;
     cursor: pointer;
     width: 125px;
