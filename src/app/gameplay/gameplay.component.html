@@ -18,7 +18,7 @@
     <h1>
         {{getNextDisplayQuestion()}}
         <mat-form-field class="answerClass" appearance="standard">
-            <input type="number" matInput [(ngModel)]="submittedAnswer">
+            <input type="number" autofocus matInput [(ngModel)]="submittedAnswer" (keydown.enter)="keydownEnter($event)">
         </mat-form-field>
         <div>
             <div *ngIf="this.mode == 'practice' && this.isCorrect != undefined">

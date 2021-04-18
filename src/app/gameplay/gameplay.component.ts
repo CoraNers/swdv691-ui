@@ -103,7 +103,6 @@ export class GameplayComponent implements OnInit {
     // - and change out the button text
     var currentQuestion = this.getQuestion();
 
-    // TODO undefined and/or invalid value checking
     this.correctAnswer = this.category * currentQuestion;
     if (this.correctAnswer == this.submittedAnswer)  {
       this.isCorrect = true;
@@ -155,6 +154,23 @@ export class GameplayComponent implements OnInit {
     this.dataService.doSubmitGameplay(requestBody);
 
     this.gameplayFinished = true;
+  }
+
+  keydownEnter(event) {
+    console.log('*******');
+    console.log(event);
+    console.log(this.isCorrect);
+    console.log(this.gameplayFinished);
+    console.log(this.hasSubmitted);
+
+    // the user hit enter while on number input and the answer has not yet been submitted for checking
+    if (!this.hasSubmitted) {
+      this.submit();
+    } else {
+      // user hit enter while on number input and they have already answered the question. 
+      // go to next so new question can show.
+      this.next();
+    }
   }
 
 }
