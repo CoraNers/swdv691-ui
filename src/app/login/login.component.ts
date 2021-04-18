@@ -41,4 +41,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  onKeydown(event) {
+    this.submitLoginInfo();
+  }
+
 }

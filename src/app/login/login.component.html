@@ -4,18 +4,18 @@
     <p>
         <mat-form-field appearance="standard">
             <mat-label>Username</mat-label>
-            <input matInput [(ngModel)]="username" placeholder="Username">
+            <input matInput [(ngModel)]="username" placeholder="Username" (keydown.enter)="onKeydown($event)">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field appearance="standard">
             <mat-label>Password</mat-label>
-            <input matInput [(ngModel)]="password" placeholder="Password">
+            <input matInput [(ngModel)]="password" placeholder="Password" (keydown.enter)="onKeydown($event)">
         </mat-form-field>
     </p>
 
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button md-button class="buttonStyle" (click)="submitLoginInfo()">Login</button>
+    <button md-button class="buttonStyle" (enter)="submitLoginInfo()" (click)="submitLoginInfo()">Login</button>
 </mat-dialog-actions>
