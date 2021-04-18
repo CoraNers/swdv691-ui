@@ -11,7 +11,7 @@ import { DataServiceProvider } from '../../providers/data-service/data-service';
 export class LoginComponent implements OnInit {
   username = "";
   password = "";
-  loginTitle = "Please login..."
+  loginTitle = "Please login...";
   userData = undefined;
   errorMessage = undefined;
 
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  doLogin() {
+  submitLoginInfo() {
     this.dataService.doLogin(this.username, this.password)
     .subscribe((data) => {
       this.userData = data;
