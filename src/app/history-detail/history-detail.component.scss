@@ -2,15 +2,15 @@
 
 .historyTable {
     border-collapse: collapse;
-    width: 75%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
 }
 
 .historyTable td, .historyTable th {
     border: 1px solid #ddd;
     padding: 8px;
+    font-size: 17px;
 }
 
 #linkToHistoryRow {

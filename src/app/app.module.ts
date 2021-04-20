@@ -19,6 +19,7 @@ import { HistoryComponent } from './history/history.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MatTableModule } from '@angular/material/table';
+import { HistoryDetailComponent } from './history-detail/history-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatTableModule } from '@angular/material/table';
     WelcomeComponent,
     HistoryComponent,
     GameplayComponent,
-    CompletedGameplayComponent
+    CompletedGameplayComponent,
+    HistoryDetailComponent
   ],
   imports: [
     BrowserModule,

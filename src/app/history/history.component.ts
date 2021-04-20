@@ -12,6 +12,8 @@ export class HistoryComponent implements OnInit {
   errorMessage = undefined;
   historyData = undefined;
   doGoHome = false;
+  doGoToHistoryDetail = false;
+  historyRowIdSelected = undefined;
 
   constructor(public dataService: DataServiceProvider, private snackBar: MatSnackBar) { }
 
@@ -64,6 +66,12 @@ export class HistoryComponent implements OnInit {
 
   goHome() {
     this.doGoHome = true;
+  }
+
+  goToHistoryDetail(historyRowId) {
+    console.log('GO TO HISTORY DETAIL WITH ROW ID ', historyRowId);
+    this.historyRowIdSelected = historyRowId;
+    this.doGoToHistoryDetail = true;
   }
 
 }

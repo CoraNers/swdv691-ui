@@ -1,0 +1,53 @@
+<div *ngIf="!doGoHome && !doGoBackToHistory">
+    <div>
+        <button md-button class="buttonStyle goHomeButton" (click)="goHome()">Go Home</button>
+        
+        <div>
+            <h3 class="historyLink" (click)="goToUserHistory()">
+                Return to History
+            </h3>
+        </div>
+    </div>
+
+    <div class="pageHeaderData"> 
+        <div>
+            <h2 class="welcome">
+                Results
+            </h2>
+        </div>
+    </div>
+
+    <div>
+        <h4>Date Attempted: {{this.historyDetailItem.date}}</h4> <br>
+        <h4># of Questions Attempted: {{this.historyDetailItem.questionsAttempted}}</h4> <br>
+        <h4>% of Questions Correct: 10% </h4><br>
+    </div>
+
+    <div>
+        <table class="historyTable">
+            <tr>
+                <th>Question</th>
+                <th>Answer</th>
+                <th>Correct / Incorrect</th>
+            </tr>
+            <ng-container *ngFor="let problemsAndAnswersRow of this.historyDetailItem.problemsAndAnswers">
+                <tr>
+                    <td>{{problemsAndAnswersRow}}</td>
+                    <td>calculate me</td>
+                    <td>showmeicon</td>
+                    <!-- <td>{{parseLengthOfTime(historyPiece.lengthOfTime)}}</td>
+                    <td id="linkToHistoryRow" (click)="goToHistoryDetail(historyPiece._id)">RowID: {{historyPiece._id}}</td> -->
+                </tr>
+            </ng-container>
+        </table>
+    </div>>
+</div>
+
+<div *ngIf="doGoHome && !doGoBackToHistory">
+    <app-welcome [userData]="userData"></app-welcome>
+</div>
+
+<div *ngIf="doGoBackToHistory">
+    <app-history [userData]="historyData"></app-history>
+</div>
+

@@ -1,4 +1,4 @@
-<div *ngIf=!doGoHome>
+<div *ngIf="!doGoHome && !doGoToHistoryDetail">
     <div>
         <button md-button class="buttonStyle goHomeButton" (click)="goHome()">Go Home</button>
     </div>
@@ -19,7 +19,7 @@
                         <td>{{historyPiece.questionsAttempted}}</td>
                         <td>{{getPercentage(historyPiece.questionsCorrect)}}%</td>
                         <td>{{parseLengthOfTime(historyPiece.lengthOfTime)}}</td>
-                        <td id="linkToHistoryRow">RowID: {{historyPiece._id}}</td>
+                        <td id="linkToHistoryRow" (click)="goToHistoryDetail(historyPiece._id)">RowID: {{historyPiece._id}}</td>
                     </tr>
                 </ng-container>
             </table>
@@ -32,4 +32,9 @@
 
 <div *ngIf="doGoHome">
     <app-welcome [userData]="userData"></app-welcome>
+</div>
+
+<div *ngIf="doGoToHistoryDetail">
+    <app-history-detail [historyData]="historyData" [historyRowIdSelected]="historyRowIdSelected" [userData]="userData">
+    </app-history-detail>
 </div>
