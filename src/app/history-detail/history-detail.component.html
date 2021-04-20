@@ -32,11 +32,9 @@
             </tr>
             <ng-container *ngFor="let problemsAndAnswersRow of this.historyDetailItem.problemsAndAnswers">
                 <tr>
-                    <td>{{problemsAndAnswersRow}}</td>
-                    <td>calculate me</td>
+                    <td>{{parseOutQuestionAndAnswer(problemsAndAnswersRow, true)}}</td>
+                    <td>{{parseOutQuestionAndAnswer(problemsAndAnswersRow, false)}}</td>
                     <td>showmeicon</td>
-                    <!-- <td>{{parseLengthOfTime(historyPiece.lengthOfTime)}}</td>
-                    <td id="linkToHistoryRow" (click)="goToHistoryDetail(historyPiece._id)">RowID: {{historyPiece._id}}</td> -->
                 </tr>
             </ng-container>
         </table>

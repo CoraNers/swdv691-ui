@@ -13,6 +13,7 @@ export class HistoryDetailComponent implements OnInit {
   doGoHome = false;
   doGoBackToHistory = false;
   historyDetailItem = undefined;
+  splitData = undefined;
 
   constructor() { }
 
@@ -34,6 +35,16 @@ export class HistoryDetailComponent implements OnInit {
   goToUserHistory() {
     console.log('GOT TO GOTO USER HISTORY FROM DETAIL COMPONENT');
     this.doGoBackToHistory = true;
+  }
+
+  parseOutQuestionAndAnswer(questionAndAnswer, returnQuestionOnly) {
+    let splitted = questionAndAnswer.split("=");
+    var i = 0;
+    if (returnQuestionOnly) {
+      return splitted[0].trim();
+    } else {
+      return splitted[1].trim();
+    }
   }
 
 }
