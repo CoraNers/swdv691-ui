@@ -18,14 +18,8 @@ export class HistoryDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('HISTORY DETAIL HISTORYDATA ', this.historyData);
-    console.log('HISTORY DETAIL ROW ID ', this.historyRowIdSelected);
-    console.log('HISTORY DETAIL USERDATA ', this.userData);
-
     this.historyDetailItem = _.filter(this.historyData, { '_id': this.historyRowIdSelected});
     this.historyDetailItem = this.historyDetailItem[0];
-
-    console.log('AFTER LODASH', this.historyDetailItem);
   }
 
   goHome() {
@@ -33,18 +27,27 @@ export class HistoryDetailComponent implements OnInit {
   }
 
   goToUserHistory() {
-    console.log('GOT TO GOTO USER HISTORY FROM DETAIL COMPONENT');
     this.doGoBackToHistory = true;
   }
 
   parseOutQuestionAndAnswer(questionAndAnswer, returnQuestionOnly) {
-    let splitted = questionAndAnswer.split("=");
+    let splitted = questionAndAnswer.split('=');
     var i = 0;
     if (returnQuestionOnly) {
       return splitted[0].trim();
     } else {
       return splitted[1].trim();
     }
+  }
+
+  parseDate(dateToParse) {
+    let regex = /(.* .*:\d\d )/;
+    let dateParts = regex.exec(dateToParse);
+    return dateParts[0]; 
+  }
+
+  calculatePercentCorrect(numCorrect) {
+    return (numCorrect / 12 * 100).toFixed(2);
   }
 
 }

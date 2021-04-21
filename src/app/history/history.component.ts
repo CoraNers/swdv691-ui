@@ -25,6 +25,7 @@ export class HistoryComponent implements OnInit {
     this.dataService.doGetHistory(this.userData._id)
     .subscribe((data) => {
       this.historyData = data;
+      console.log(this.historyData);
     }, error => {
       this.errorMessage = error;
       this.snackBar.open('Error while getting user history. Please try again later.', '', {
@@ -51,17 +52,17 @@ export class HistoryComponent implements OnInit {
         return this.convertToMinutesAndSeconds(lengthOfTime);
       } else {
         // less than 60 seconds for 12 questions - display nicely
-        return lengthOfTime + " sec.";
+        return lengthOfTime + ' sec.';
       }
     } else {
-      return "";
+      return 'practice';
     }
   }
 
   convertToMinutesAndSeconds(time) {
     let minutes = Math.floor(time / 60);
     let seconds = time - minutes * 60;
-    return minutes + " min. " + seconds + " sec.";
+    return minutes + ' min. ' + seconds + ' sec.';
   }
 
   goHome() {
@@ -69,7 +70,6 @@ export class HistoryComponent implements OnInit {
   }
 
   goToHistoryDetail(historyRowId) {
-    console.log('GO TO HISTORY DETAIL WITH ROW ID ', historyRowId);
     this.historyRowIdSelected = historyRowId;
     this.doGoToHistoryDetail = true;
   }
