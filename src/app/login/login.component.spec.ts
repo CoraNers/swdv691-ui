@@ -15,46 +15,31 @@ import { HistoryDetailComponent } from '../history-detail/history-detail.compone
 import { HistoryComponent } from '../history/history.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { LoginComponent } from './login.component';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { of } from 'rxjs';
 
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+  let dataService: any;
+  let dialog: any;
+  let mockSnackbar: any;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        FormsModule,
-        MatGridListModule,
-        MatFormFieldModule,
-        MatDialogModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatSnackBarModule,
-        MatInputModule 
-      ],
-      declarations: [ 
-        LoginComponent, 
-        WelcomeComponent,
-        HistoryComponent,
-        GameplayComponent,
-        HistoryDetailComponent,
-        CompletedGameplayComponent
-      ],
-      providers: [
-        HttpClient,
-        MatDialog,
-        { provide: MatDialogRef, useValue: {} },
-      ]
-    })
-    .compileComponents();
-  });
+  dialog = {
+    close: () => {}
+  };
+
+  mockSnackbar = {
+    open: () => {}
+  };
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    dataService = {
+      doLogin: () => {}
+    };
+
+    component = new LoginComponent(dataService, dialog, mockSnackbar);
+
   });
 
   it('should create', () => {
@@ -63,23 +48,34 @@ describe('LoginComponent', () => {
 
   describe('onKeydown', () => {
     it('should call submitLoginInfo', () => {
-      fixture = TestBed.createComponent(LoginComponent);
-      component = fixture.componentInstance;
       let submitLoginInfoSpy = spyOn(component, 'submitLoginInfo').and.callFake(() => {});
-      component.onKeydown('keydownEvent');
+      component.onKeydown('event');
       expect(submitLoginInfoSpy).toHaveBeenCalled();
     });
   });
 
-  // describe('submitLoginInfo', () => {
-  //   fit('should set userData if successful', () => {
-  //     fixture = TestBed.createComponent(LoginComponent);
-  //     component = fixture.componentInstance;
-  //     let submitLoginInfoSpy = jasmine.createSpyObj('DataServiceProvider', ['doLogin']).and.returnValue('successTestData');
-  //     component.onKeydown('keydownEvent');
-  //     expect(submitLoginInfoSpy).toHaveBeenCalled();
-  //   });
-  // });
+  describe('submitLoginInfo', () => {
+    it('should call dataService doLogin function', () => {
+      let submitLoginInfoSpy = spyOn(component.dataService, 'doLogin').and.returnValue(of('successTestUserData'));
+      component.submitLoginInfo();
+      expect(submitLoginInfoSpy).toHaveBeenCalled();
+    });
+
+    it('should set call the service with username and password', () => {
+      let submitLoginInfoSpy = spyOn(component.dataService, 'doLogin').and.returnValue(of('successTestUserData'));
+      component.username = "testusername";
+      component.password = "testpassword";
+      component.submitLoginInfo();
+      expect(submitLoginInfoSpy).toHaveBeenCalledWith(component.username, component.password);
+    });
+
+    it('should set userdata on the component', () => {
+      spyOn(component.dataService, 'doLogin').and.returnValue(of('successTestUserData'));
+      component.submitLoginInfo();
+      expect(component.userData).toEqual('successTestUserData');
+    });
+    
+  });
 
 
 });
