@@ -9,14 +9,14 @@ import { DataServiceProvider } from '../../providers/data-service/data-service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  username = "";
-  password = "";
-  loginTitle = "Please login...";
+  username = '';
+  password = '';
+  loginTitle = 'Please login...';
   userData = undefined;
   errorMessage = undefined;
 
   constructor(public dataService: DataServiceProvider, private dialogRef: MatDialogRef<LoginComponent>, 
-    @Inject(MAT_DIALOG_DATA) data, private snackBar: MatSnackBar) { 
+    private snackBar: MatSnackBar) { 
 
     }
 

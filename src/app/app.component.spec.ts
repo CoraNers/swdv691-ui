@@ -1,16 +1,43 @@
+import { Overlay } from '@angular/cdk/overlay';
 import { TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { CompletedGameplayComponent } from './completed-gameplay/completed-gameplay.component';
+import { GameplayComponent } from './gameplay/gameplay.component';
+import { HistoryDetailComponent } from './history-detail/history-detail.component';
+import { HistoryComponent } from './history/history.component';
+import { LoginComponent } from './login/login.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        FormsModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        MatDialogModule,
+        BrowserAnimationsModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        WelcomeComponent,
+        HistoryComponent,
+        GameplayComponent,
+        HistoryDetailComponent,
+        CompletedGameplayComponent,
+        LoginComponent
       ],
+      providers: [
+        MatDialog,
+        Overlay
+      ]
     }).compileComponents();
   });
 
@@ -26,10 +53,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('lets-multiply');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('lets-multiply app is running!');
-  });
 });
