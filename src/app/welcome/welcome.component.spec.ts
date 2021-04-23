@@ -1,6 +1,6 @@
 import { WelcomeComponent } from '../welcome/welcome.component';
 
-fdescribe('WelcomeComponent', () => {
+describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
 
   beforeEach(() => {

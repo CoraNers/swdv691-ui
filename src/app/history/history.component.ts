@@ -42,7 +42,7 @@ export class HistoryComponent implements OnInit {
   parseDate(dateToParse) {
     let regex = /(.* .*:\d\d )/;
     let dateParts = regex.exec(dateToParse);
-    return dateParts[0]; 
+    return dateParts[0].trim(); 
   }
 
   parseLengthOfTime(lengthOfTime) {
