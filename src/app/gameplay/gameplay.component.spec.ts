@@ -1,6 +1,6 @@
 import { GameplayComponent } from '../gameplay/gameplay.component';
 
-fdescribe('GameplayComponent', () => {
+describe('GameplayComponent', () => {
   let component: GameplayComponent;
   let dataService: any;
   let mockSnackbar: any;

@@ -25,7 +25,7 @@ export class CompletedGameplayComponent implements OnInit {
   convertTimeInSecondsForDisplayableTime() {
     var minutes = Math.floor(this.timeInSecondsToComplete / 60);
     var seconds = this.timeInSecondsToComplete - minutes * 60;
-    this.timeDisplayable = minutes + " minutes " + seconds + " seconds";
+    this.timeDisplayable = minutes + (minutes > 1 ? ' minutes ' : ' minute ') + seconds + (seconds > 1 ? ' seconds' : ' second');
   }
 
   goToUserHistory() {
