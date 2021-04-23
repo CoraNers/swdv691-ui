@@ -36,10 +36,10 @@ export class GameplayComponent implements OnInit {
       this.modeDisplayable = 'Evaluating';
     }
 
-    this.createGameplayArray(this.category);
+    this.createGameplayArray();
   }
 
-  createGameplayArray(categoryNumber) {
+  createGameplayArray() {
     let gameplayQuestions = [];
     for(let i = 1; i < 12+1; i++) {
       // add values 1-12 to the array
@@ -157,11 +157,6 @@ export class GameplayComponent implements OnInit {
   }
 
   keydownEnter(event) {
-    console.log('*******');
-    console.log(event);
-    console.log(this.isCorrect);
-    console.log(this.gameplayFinished);
-    console.log(this.hasSubmitted);
 
     // the user hit enter while on number input and the answer has not yet been submitted for checking
     if (!this.hasSubmitted) {
