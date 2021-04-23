@@ -43,7 +43,7 @@ export class HistoryDetailComponent implements OnInit {
   parseDate(dateToParse) {
     let regex = /(.* .*:\d\d )/;
     let dateParts = regex.exec(dateToParse);
-    return dateParts[0]; 
+    return dateParts[0].trim(); 
   }
 
   calculatePercentCorrect(numCorrect) {
