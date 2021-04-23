@@ -11,7 +11,8 @@ describe('GameplayComponent', () => {
 
   beforeEach(() => {
     dataService = {
-      doLogin: () => {}
+      doLogin: () => {},
+      doSubmitGameplay: () => {},
     };
 
     component = new GameplayComponent(dataService, mockSnackbar);
@@ -75,4 +76,57 @@ describe('GameplayComponent', () => {
     });
 
   });
+
+  describe('getQuestion', () => {
+    it('should return first element in the array if array size > 0', () => {
+      component.gameplayQuestionsShuffled = [
+        '6 x 2', 
+        '6 x 11',
+        '6 x 5'
+      ];
+      let retVal = component.getQuestion();
+      expect(retVal).toEqual('6 x 2');
+    });
+
+  });
+
+  describe('popOffQuestionAnswered', () => {
+    it('should return answered question (value in first index of array) when answered if 1+ questions', () => {
+      component.gameplayQuestionsShuffled = [
+        '6 x 2', 
+        '6 x 11',
+        '6 x 5'
+      ];
+      let retVal = component.popOffQuestionAnswered();
+      expect(retVal).toEqual('6 x 2');
+    });
+
+    it('should decrement question number if shuffled length == 0 and call finish', () => {
+      component.questionNumber = 2;
+      let finishSpy = spyOn(component, 'finish').and.callFake(() => {});
+      component.gameplayQuestionsShuffled = [];
+      component.popOffQuestionAnswered();
+      expect(component.questionNumber).toEqual(1);
+      expect(finishSpy).toHaveBeenCalled();
+    });
+
+  });
+
+  describe('keydownEnter', () => {
+    it('should call submit if user has not submitted their answer yet', () => {
+      component.hasSubmitted = false;
+      let submitSpy = spyOn(component, 'submit').and.callFake(() => {});
+      component.keydownEnter('anyEvent');
+      expect(submitSpy).toHaveBeenCalled();
+    });
+
+    it('should call next if user has submitted their answer yet', () => {
+      component.hasSubmitted = true;
+      let nextSpy = spyOn(component, 'next').and.callFake(() => {});
+      component.keydownEnter('anyEvent');
+      expect(nextSpy).toHaveBeenCalled();
+    });
+
+  });
+
 });
