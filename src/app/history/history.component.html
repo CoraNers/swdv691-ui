@@ -28,8 +28,11 @@
                 </ng-container>
             </table>
         </div>
-        <div *ngIf="this.historyData.length == 0 || this.historyData == undefined">
-            We have no history data
+        <div *ngIf="this.historyData.length == 0 || this.historyData == undefined" style="text-align: center;">
+            <h4>
+                No data found. Please click Go Home to play the game.<br>
+                Your data will be saved and appear here.
+            </h4>
         </div>
     </div>
 </div>
