@@ -12,6 +12,7 @@ export class WelcomeComponent implements OnInit {
   goToHistory = false;
   goToGameplay = false;
   categoryToPlay = undefined;
+  logoutUser = false;
 
   constructor() { 
   }
@@ -27,6 +28,10 @@ export class WelcomeComponent implements OnInit {
 
   goToUserHistory() {
     this.goToHistory = true;
+  }
+
+  doLogout() {
+    this.logoutUser = true;
   }
 
 }

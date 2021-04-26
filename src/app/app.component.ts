@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginComponent } from './login/login.component';
 
 @Component({
@@ -9,18 +9,28 @@ import { LoginComponent } from './login/login.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @Input() logoutUser: any;
   title = 'lets-multiply';
 
-  username: string;
-  password: string;
+  username: string = undefined;
+  password: string = undefined;
   loggedInFirstName: string;
-  getLoggedInUserData: object;
+  getLoggedInUserData: object = undefined;
   goToWelcome = false;
 
-  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router) {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
+    this.reset();
     this.openDialog();
+  }
+
+  reset() {
+    this.username = undefined;
+    this.password = undefined;
+    this.loggedInFirstName = undefined;
+    this.getLoggedInUserData = undefined;
+    this.goToWelcome = false;
   }
 
   openDialog() {

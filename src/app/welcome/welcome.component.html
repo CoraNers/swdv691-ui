@@ -1,11 +1,11 @@
-<div *ngIf="!goToHistory && !goToGameplay">    
+<div *ngIf="!goToHistory && !goToGameplay && !logoutUser">    
     <div class="pageHeaderData"> 
         <div>
             <h2 class="welcome">
                 Welcome {{userData.firstName}}!
             </h2>
 
-            <button md-button class="buttonStyle logoutButton">Logout</button>
+            <button md-button class="buttonStyle logoutButton" (click)="doLogout()">Logout</button>
         </div>
 
         <div>
@@ -46,3 +46,8 @@
 <div *ngIf="goToGameplay">
     <app-gameplay [userData]="userData" [mode]="mode" [category]="categoryToPlay"></app-gameplay>
 </div>
+
+<div *ngIf="logoutUser">
+    <app-root [logoutUser]="logoutUser"></app-root>
+</div>
+
