@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MatTableModule } from '@angular/material/table';
 import { HistoryDetailComponent } from './history-detail/history-detail.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { HistoryDetailComponent } from './history-detail/history-detail.componen
     MatInputModule,
     MatSnackBarModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatDialogModule,

@@ -19,3 +19,7 @@
 <mat-dialog-actions>
     <button md-button class="buttonStyle" (enter)="submitLoginInfo()" (click)="submitLoginInfo()">Login</button>
 </mat-dialog-actions>
+
+<div *ngIf="showSpinner">
+    <mat-spinner></mat-spinner>
+</div>

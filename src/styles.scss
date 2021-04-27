@@ -74,7 +74,7 @@ body {
 }
 
 .buttonStyle {
-    background-color: $secondaryColor; 
+    background-color: $primaryColor; 
     border-radius: 15px; 
     padding: 15px; 
     color: black; 
@@ -151,6 +151,12 @@ body {
     width: 100%;
     font-weight: bold;
     margin-top: 10px;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: $accentColor1;
+    margin-left: 33%;
+    margin-right: 33%;
 }
 
 html, body { height: 100%; }
