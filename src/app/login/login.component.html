@@ -13,12 +13,13 @@
             <input matInput type="password" [(ngModel)]="password" placeholder="Password" (keydown.enter)="onKeydown($event)">
         </mat-form-field>
     </p>
-
 </mat-dialog-content>
 
-<mat-dialog-actions>
-    <button md-button class="buttonStyle" (enter)="submitLoginInfo()" (click)="submitLoginInfo()">Login</button>
-</mat-dialog-actions>
+<div *ngIf="!showSpinner">
+    <mat-dialog-actions>
+        <button md-button class="buttonStyle" (enter)="submitLoginInfo()" (click)="submitLoginInfo()">Login</button>
+    </mat-dialog-actions>
+</div>
 
 <div *ngIf="showSpinner">
     <mat-spinner class="spinner"></mat-spinner>
