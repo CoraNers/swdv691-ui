@@ -9,8 +9,8 @@
                 <tr>
                     <th>Date/Time</th>
                     <th>Category</th>
-                    <th>Questions Attempted</th>
                     <th>Questions Correct</th>
+                    <th>Questions Attempted</th>
                     <th>Percent Correct</th>
                     <th>Time to Complete</th>
                     <th>Link to Details</th>
@@ -19,8 +19,8 @@
                     <tr>
                         <td>{{parseDate(historyPiece.date)}}</td>
                         <td>{{historyPiece.category}}</td>
-                        <td>{{historyPiece.questionsAttempted}}</td>
                         <td>{{historyPiece.questionsCorrect}}</td>
+                        <td>{{historyPiece.questionsAttempted}}</td>
                         <td>{{getPercentage(historyPiece.questionsCorrect)}}%</td>
                         <td>{{parseLengthOfTime(historyPiece.lengthOfTime)}}</td>
                         <td id="linkToHistoryRow" (click)="goToHistoryDetail(historyPiece._id)">View Details</td>

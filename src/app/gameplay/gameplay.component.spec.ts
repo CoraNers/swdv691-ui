@@ -116,14 +116,14 @@ describe('GameplayComponent', () => {
     it('should call submit if user has not submitted their answer yet', () => {
       component.hasSubmitted = false;
       let submitSpy = spyOn(component, 'submit').and.callFake(() => {});
-      component.keydownEnter('anyEvent');
+      component.keydownEnter();
       expect(submitSpy).toHaveBeenCalled();
     });
 
     it('should call next if user has submitted their answer yet', () => {
       component.hasSubmitted = true;
       let nextSpy = spyOn(component, 'next').and.callFake(() => {});
-      component.keydownEnter('anyEvent');
+      component.keydownEnter();
       expect(nextSpy).toHaveBeenCalled();
     });
 

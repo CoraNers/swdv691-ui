@@ -22,7 +22,7 @@
         <h4>Category Attempted: {{this.historyDetailItem.category}}</h4> <br>
         <h4># of Questions Attempted: {{this.historyDetailItem.questionsAttempted}}</h4> <br>
         <h4># of Questions Correct: {{this.historyDetailItem.questionsCorrect}}</h4> <br>
-        <h4>% of Questions Correct: {{calculatePercentCorrect(this.historyDetailItem.questionsCorrect)}} %</h4><br>
+        <h4>% of Questions Correct: {{calculatePercentCorrect(this.historyDetailItem.questionsCorrect)}}%</h4><br>
     </div>
 
     <div>
@@ -36,7 +36,7 @@
                 <tr>
                     <td>{{parseOutQuestionAndAnswer(problemsAndAnswersRow, true)}}</td>
                     <td>{{parseOutQuestionAndAnswer(problemsAndAnswersRow, false)}}</td>
-                    <td>showmeicon</td>
+                    <td>{{validateCorrectness(problemsAndAnswersRow)}}</td>
                 </tr>
             </ng-container>
         </table>

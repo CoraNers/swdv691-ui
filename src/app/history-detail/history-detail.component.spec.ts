@@ -42,15 +42,30 @@ describe('HistoryDetailComponent', () => {
     });
   });
 
-  describe('parseOutQuestionAndAnswer', () => {
-    it('should return the question only when returnQuestionOnly is true', () => {
-      let retVal = component.parseOutQuestionAndAnswer('1 x 1 = 4', true);
-      expect(retVal).toEqual('1 x 1');
+  describe('validateCorrectness', () => {
+    it('should return Correct if the answer is correct after parsing', () => {
+      let retVal = component.validateCorrectness('3 x 3 = 9');
+      expect(retVal).toEqual('Correct');
     });
 
-    it('should return the question only when returnQuestionOnly is false', () => {
-      let retVal = component.parseOutQuestionAndAnswer('1 x 1 = 4', false);
-      expect(retVal).toEqual('4');
+    it('should return Incorrect if the answer is incorrect after parsing', () => {
+      let retVal = component.validateCorrectness('3 x 3 = 8');
+      expect(retVal).toEqual('Incorrect');
+    });
+
+    it('should return Unknown if something goes wrong with parsing the first digit', () => {
+      let retVal = component.validateCorrectness('X x 3 = 8');
+      expect(retVal).toEqual('Unknown');
+    });
+
+    it('should return Unknown if something goes wrong with parsing the second digit', () => {
+      let retVal = component.validateCorrectness('1 x X = 8');
+      expect(retVal).toEqual('Unknown');
+    });
+
+    it('should return Unknown if something goes wrong with parsing the answer', () => {
+      let retVal = component.validateCorrectness('1 x 5 = X');
+      expect(retVal).toEqual('Unknown');
     });
   });
 });
