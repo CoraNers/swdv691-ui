@@ -64,10 +64,10 @@ export class HistoryDetailComponent implements OnInit {
           return false;
         }
       } else {
-        return 'Unknown';
+        return undefined;
       }
     } else {
-      return 'Unknown'
+      return undefined;
     }
   }
 

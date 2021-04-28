@@ -43,29 +43,29 @@ describe('HistoryDetailComponent', () => {
   });
 
   describe('validateCorrectness', () => {
-    it('should return Correct if the answer is correct after parsing', () => {
+    it('should return true if the answer is correct after parsing', () => {
       let retVal = component.validateCorrectness('3 x 3 = 9');
-      expect(retVal).toEqual('Correct');
+      expect(retVal).toEqual(true);
     });
 
-    it('should return Incorrect if the answer is incorrect after parsing', () => {
+    it('should return false if the answer is incorrect after parsing', () => {
       let retVal = component.validateCorrectness('3 x 3 = 8');
-      expect(retVal).toEqual('Incorrect');
+      expect(retVal).toEqual(false);
     });
 
-    it('should return Unknown if something goes wrong with parsing the first digit', () => {
+    it('should return undefined if something goes wrong with parsing the first digit', () => {
       let retVal = component.validateCorrectness('X x 3 = 8');
-      expect(retVal).toEqual('Unknown');
+      expect(retVal).toEqual(undefined);
     });
 
-    it('should return Unknown if something goes wrong with parsing the second digit', () => {
+    it('should return undefined if something goes wrong with parsing the second digit', () => {
       let retVal = component.validateCorrectness('1 x X = 8');
-      expect(retVal).toEqual('Unknown');
+      expect(retVal).toEqual(undefined);
     });
 
-    it('should return Unknown if something goes wrong with parsing the answer', () => {
+    it('should return undefined if something goes wrong with parsing the answer', () => {
       let retVal = component.validateCorrectness('1 x 5 = X');
-      expect(retVal).toEqual('Unknown');
+      expect(retVal).toEqual(undefined);
     });
   });
 });
