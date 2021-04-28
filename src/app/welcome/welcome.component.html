@@ -29,7 +29,7 @@
     </div>
 
     <div width="75%">
-        <mat-grid-list cols="4" rowHeight="125px" gutterSize="20px">
+        <mat-grid-list cols="4" rowHeight="100px" gutterSize="15px">
             <div *ngFor="let num of categoryArray; let currentIndex = index">
                 <mat-grid-tile>
                     <button md-button class="buttonStyleLarge" (click)="playGame(currentIndex)">{{currentIndex + 1}}'s</button>

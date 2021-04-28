@@ -1,5 +1,5 @@
 <div *ngIf="!doGoHome && !doGoBackToHistory">
-    <div>
+    <div class="test">
         <button md-button class="buttonStyle goHomeButton" (click)="goHome()">Go Home</button>
         
         <div>
@@ -7,22 +7,22 @@
                 Return to History
             </h3>
         </div>
-    </div>
 
-    <div class="pageHeaderData"> 
-        <div>
-            <h2 class="welcome">
-                Results
-            </h2>
+        <div class="pageHeaderData"> 
+            <div>
+                <h2 class="welcome">
+                    Results
+                </h2>
+            </div>
         </div>
-    </div>
 
-    <div>
-        <h4>Date Attempted: {{parseDate(this.historyDetailItem.date)}}</h4> <br>
-        <h4>Category Attempted: {{this.historyDetailItem.category}}</h4> <br>
-        <h4># of Questions Attempted: {{this.historyDetailItem.questionsAttempted}}</h4> <br>
-        <h4># of Questions Correct: {{this.historyDetailItem.questionsCorrect}}</h4> <br>
-        <h4>% of Questions Correct: {{calculatePercentCorrect(this.historyDetailItem.questionsCorrect)}}%</h4><br>
+        <div>
+            <h4>Date Attempted: {{parseDate(this.historyDetailItem.date)}}</h4> <br>
+            <h4>Category Attempted: {{this.historyDetailItem.category}}</h4> <br>
+            <h4># of Questions Attempted: {{this.historyDetailItem.questionsAttempted}}</h4> <br>
+            <h4># of Questions Correct: {{this.historyDetailItem.questionsCorrect}}</h4> <br>
+            <h4>% of Questions Correct: {{calculatePercentCorrect(this.historyDetailItem.questionsCorrect)}}%</h4><br>
+        </div>
     </div>
 
     <div>
@@ -36,7 +36,23 @@
                 <tr>
                     <td>{{parseOutQuestionAndAnswer(problemsAndAnswersRow, true)}}</td>
                     <td>{{parseOutQuestionAndAnswer(problemsAndAnswersRow, false)}}</td>
-                    <td>{{validateCorrectness(problemsAndAnswersRow)}}</td>
+                    <td>
+                        <div *ngIf="validateCorrectness(problemsAndAnswersRow)">
+                            <span class="material-icons correct">
+                                done
+                            </span>
+                        </div>
+                        <div *ngIf="!validateCorrectness(problemsAndAnswersRow)">
+                            <span class="material-icons incorrect">
+                                close
+                            </span>
+                        </div>
+                        <div *ngIf="validateCorrectness(problemsAndAnswersRow) == undefined">
+                            <span class="material-icons unknown">
+                                help_outline
+                            </span>
+                        </div>
+                    </td>
                 </tr>
             </ng-container>
         </table>

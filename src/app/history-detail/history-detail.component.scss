@@ -2,15 +2,17 @@
 
 .historyTable {
     border-collapse: collapse;
-    width: 50%;
+    width: 45%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
 }
 
 .historyTable td, .historyTable th {
     border: 1px solid #ddd;
     padding: 8px;
     font-size: 17px;
+    text-align: center;
 }
 
 #linkToHistoryRow {
@@ -29,7 +31,19 @@
 .historyTable th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: $accentColor2;
     color: $primaryColor;
+}
+
+.correct {
+    color: $colorSuccess;
+}
+
+.incorrect {
+    color: $colorDanger;
+}
+
+.unknown {
+    color: $accentColor2;
 }

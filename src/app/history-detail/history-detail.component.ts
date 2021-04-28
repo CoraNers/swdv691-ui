@@ -59,9 +59,9 @@ export class HistoryDetailComponent implements OnInit {
       let answer = Number(parts[3].trim()) ? Number(parts[3].trim()) : undefined; 
       if(firstNum != undefined && secondNum != undefined && answer != undefined) {
         if (firstNum * secondNum == answer) {
-          return 'Correct';
+          return true;
         } else {
-          return 'Incorrect';
+          return false;
         }
       } else {
         return 'Unknown';

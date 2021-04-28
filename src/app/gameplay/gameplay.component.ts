@@ -156,7 +156,7 @@ export class GameplayComponent implements OnInit {
     this.gameplayFinished = true;
   }
 
-  keydownEnter(event) {
+  keydownEnter() {
 
     // the user hit enter while on number input and the answer has not yet been submitted for checking
     if (!this.hasSubmitted) {
