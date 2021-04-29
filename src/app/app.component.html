@@ -1,18 +1,21 @@
 
-<!-- Toolbar -->
-<div *ngIf="!logoutUser">
-  <div class="toolbarClass" role="banner">
-    <h1>Let's Multiply!</h1>
-      <div class="spacer"></div>
+<div>
+  
+  <div *ngIf="!logoutUser">
+    <div class="toolbarClass" role="banner">
+      <h1>Let's Multiply!</h1>
+        <div class="spacer"></div>
+    </div>
   </div>
-</div>
 
-<footer class="page-footer font-small">
-  <div class="footer-data">Cora Ners - Let's Multiply - Capstone 2021 Maryville</div>
-</footer>
+  <footer class="page-footer font-small">
+    <div class="footer-data">Cora Ners - Let's Multiply - Capstone 2021 Maryville</div>
+  </footer>
 
-<div *ngIf="goToWelcome">
-  <app-welcome [userData]="getLoggedInUserData"></app-welcome>
+  <div *ngIf="goToWelcome">
+    <app-welcome [userData]="getLoggedInUserData"></app-welcome>
+  </div>
+
 </div>
 
 <router-outlet></router-outlet>
